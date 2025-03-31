@@ -1,0 +1,56 @@
+
+ 
+
+@import "tailwindcss";
+ 
+
+
+
+
+@font-face {
+  font-family: "plus-jakarta-sans";
+  src: url("/src/assets/fonts/static/PlusJakartaSans-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "plus-jakarta-sans";
+  src: url("/src/assets/fonts/static/PlusJakartaSans-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "plus-jakarta-sans";
+  src: url("/src/assets/fonts/static/PlusJakartaSans-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "plus-jakarta-sans";
+  src: url("/src/assets/fonts/static/PlusJakartaSans-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "plus-jakarta-sans";
+  src: url("/src/assets/fonts/static/PlusJakartaSans-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "plus-jakarta-sans";
+  src: url("/src/assets/fonts/static/PlusJakartaSans-Light.ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "plus-jakarta-sans";
+  src: url("/src/assets/fonts/static/PlusJakartaSans-ExtraLight.ttf");
+  font-weight: 100;
+}
+
+
+
+
+ 
+
