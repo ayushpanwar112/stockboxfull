@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import TableComponent from "./pages/TableComponent";
 import TableYearComponent from "./pages/TableYearComponent";
 import EventDashboard from "./pages/EventDashboard";
+import Crousal_image from "./pages/Crousal_image";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/tables" element={<TableComponent />} />
         <Route path="/tablesYearly" element={<TableYearComponent />} />
         <Route path="/dashboard" element={<EventDashboard />} />
+        <Route path="/carousel" element={<Crousal_image />} />
       </Routes>
     </div>
   );

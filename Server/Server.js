@@ -12,6 +12,7 @@ import morgan from "morgan"
 import dotenv from "dotenv";
 import UserRoute from "./routes/user.routes.js";
 import { errorHandler } from "./middleware/globalErrorHandler.js";
+import imgRouter from "./routes/ImageRoute.js";
 dotenv.config();
 
 // Initialize Express app
@@ -33,6 +34,7 @@ app.use(errorHandler)
 // Route to fetch blogs from Blogger API and store them in MongoDB
 app.use("/api", blogRoute);
 app.use("/api/sec",UserRoute);
+app.use("/api/crousal" , imgRouter)
 
 // Start the server
 const PORT = process.env.PORT || 4000;
