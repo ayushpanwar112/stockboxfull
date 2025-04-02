@@ -4,7 +4,7 @@ import img1 from '../../assets/Blog/img1.svg';
 import CommentIcon from '../../assets/Blog/commentIcon.png';
 import { FaUser } from "react-icons/fa6";
 import { MdDateRange, MdReadMore } from "react-icons/md";
-import stockImage from '../../assets/Blog/blog.jpg'; // Add this line
+
 
 const BlogCard = ({ title, desc, author, keywords, comments, Date, imageUrl, id }) => {
   const navigate = useNavigate();
@@ -16,11 +16,7 @@ const BlogCard = ({ title, desc, author, keywords, comments, Date, imageUrl, id 
   const cleanedDate = Date ? Date.split('T')[0] : "No date available";
 
   // Function to check if the image URL is valid
-  const isValidImageUrl = (url) => {
-    const img = new Image();
-    img.src = url;
-    return img.complete && img.naturalHeight !== 0;
-  };
+
 
   return (
     <div 
@@ -31,7 +27,7 @@ const BlogCard = ({ title, desc, author, keywords, comments, Date, imageUrl, id 
       {/* Image Section */}
       <div className='rounded-lg w-full overflow-hidden group-hover:rotate-z-[3deg] duration-300'>
         <img 
-          src={isValidImageUrl(imageUrl) ? imageUrl : stockImage}  // Update this line
+          src={imageUrl}  // Update this line
           className='rounded-lg w-full h-55 object-cover transition-transform duration-300 
             group-hover:rotate-y-[10deg]' 
           alt="Blog" 

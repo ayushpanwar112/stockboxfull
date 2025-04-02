@@ -38,15 +38,35 @@ const Hero = () => {
 
   return (
     <div className="md:mt-20 md:px-20 px-10 mt-4 ">
-    <div className="flex w-full justify-center md:gap-30 gap-[40%]">
-     <img src={apple} alt="apple" className="md:w-[10%] md:h-[10%] w-[100px]"/>
-     <img src={playstore} alt="apple" className="md:w-[10%] md:h-[10%] w-[100px]"/>
-    </div>
+   <div className="flex w-full justify-center items-center gap-10 md:gap-0">
+  <a 
+    href="https://apps.apple.com/in/app/stockbox-technologies/id6443554700"
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="flex justify-center items-center w-[50%]"
+  >
+    <img src={apple} alt="Apple Store" className="md:w-[25%] md:h-[25%] w-[100px]" />
+  </a>
+
+  <a 
+    href="https://play.google.com/store/search?q=stockBox&c=apps&hl=en" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="flex justify-center items-center  w-[53%]"
+  >
+    <img 
+      src={playstore} 
+      alt="Play Store" 
+      className="md:w-[25%] md:h-[15%] w-[100px] cursor-pointer"
+    />
+  </a>
+</div>
+
     {/* left side cards with phn */}
     <div className="relative mb-[10%] mt-10 md:flex justify-between hidden md:block ">
       <div className="w-[40vh]  flex flex-col card ">
         <img src={cards} alt="no img" className="md:w-[35px] md:h-[35px] lg:w-[3vw] lg:h-[6vh]"/>
-        <h1 className="font-bold mb-5 text-[12px] md:text-[2vh] hover:text-orange-500 transition-all duration-900">Get a secured credit card and bank account in 5 minutes.</h1>
+        <h1 className="font-bold mb-5 text-[12px] md:text-[2vh] hover:text-orange-500 transition-all duration-900 text-gray-400">Get a secured credit card and bank account in 5 minutes.</h1>
         <p className="text-white text-[12px] md:text-[2vh]">No credit history, credit check, or minimum deposit required.</p>
 
       </div>
@@ -61,7 +81,7 @@ className="absolute top-0 right-[34%] md:w-[28%] float-animation phone "
      
       <div className="w-[40vh]  flex flex-col card ">
         <img src={cards} alt="no img" className="md:w-[35px] md:h-[35px] lg:w-[3vw] lg:h-[6vh]"/>
-        <h1 className="font-bold mb-5 text-[12px] md:text-[2vh]">Get a secured credit card and bank account in 5 minutes.</h1>
+        <h1 className="font-bold mb-5 text-[12px] md:text-[2vh] text-gray-400 hover:text-orange-500">Get a secured credit card and bank account in 5 minutes.</h1>
         <p className="text-white text-[12px] md:text-[2vh]">No credit history, credit check, or minimum deposit required.</p>
 
       </div>
@@ -72,7 +92,7 @@ className="absolute top-0 right-[34%] md:w-[28%] float-animation phone "
  
     <div className="w-[40vh]  flex flex-col cards ">
         <img src={cards} alt="no img" className="md:w-[35px] md:h-[35px] lg:w-[3vw] lg:h-[6vh]"/>
-        <h1 className="font-bold mb-5 text-[12px] md:text-[2vh]">Get a secured credit card and bank account in 5 minutes.</h1>
+        <h1 className="font-bold mb-5 text-[12px] md:text-[2vh] text-gray-400 hover:text-orange-500">Get a secured credit card and bank account in 5 minutes.</h1>
         <p className="text-white text-[12px] md:text-[2vh]">No credit history, credit check, or minimum deposit required.</p>
 
       </div>
@@ -80,7 +100,7 @@ className="absolute top-0 right-[34%] md:w-[28%] float-animation phone "
  {/* right side card */}
  <div className="w-[40vh]  flex flex-col cards ">
         <img src={cards} alt="no img" className="md:w-[35px] md:h-[35px] lg:w-[3vw] lg:h-[6vh]"/>
-        <h1 className="font-bold mb-5 text-[12px] md:text-[2vh] ">Get a secured credit card and bank account in 5 minutes.</h1>
+        <h1 className="font-bold mb-5 text-[12px] md:text-[2vh] text-gray-400 hover:text-orange-500">Get a secured credit card and bank account in 5 minutes.</h1>
         <p className="text-white text-[12px] md:text-[2vh] ">No credit history, credit check, or minimum deposit required.</p>
 
       </div>
@@ -94,8 +114,8 @@ className="absolute top-0 right-[34%] md:w-[28%] float-animation phone "
           <div className="w-[60%] ">
           <div className="flex flex-col card ">
         <img src={cards} alt="no img" className=" w-[20px] h-[20px]"/>
-        <h1 className="font-bold mb-2 text-[12px] ">Get a secured credit card and bank account in 5 minutes.</h1>
-        <p className="text-white text-[12px] md:text-[2vh]">No credit history, credit check, or minimum deposit required.</p>
+        <h1 className="font-bold mb-2 text-[12px] hover:text-orange-500 text-gray-400">Get a secured credit card and bank account in 5 minutes.</h1>
+        <p className="text-white text-[12px] md:text-[2vh] ">No credit history, credit check, or minimum deposit required.</p>
 
       </div>
 
@@ -104,7 +124,7 @@ className="absolute top-0 right-[34%] md:w-[28%] float-animation phone "
           <div className="w-[60%] ">
           <div className="flex flex-col card ">
         <img src={cards} alt="no img" className=" w-[20px] h-[20px]"/>
-        <h1 className="font-bold mb-2 text-[12px] ">Get a secured credit card and bank account in 5 minutes.</h1>
+        <h1 className="font-bold mb-2 text-[12px] hover:text-orange-500 text-gray-400">Get a secured credit card and bank account in 5 minutes.</h1>
         <p className="text-white text-[12px] md:text-[2vh]">No credit history, credit check, or minimum deposit required.</p>
 
       </div>
@@ -124,7 +144,7 @@ className="absolute top-0 right-[34%] md:w-[28%] float-animation phone "
           <div className="flex flex-col card ">
         <img src={cards} alt="no img" className=" w-[20px] h-[20px]"/>
         <h1 className="font-bold mb-2 text-[12px] text-white ">Get a secured credit card and bank account in 5 minutes.</h1>
-        <p className="font-bold text-[12px] md:text-[2vh]">No credit history, credit check, or minimum deposit required.</p>
+        <p className="font-bold text-[12px] md:text-[2vh] text-gray-400">No credit history, credit check, or minimum deposit required.</p>
 
       </div>
 
@@ -134,7 +154,7 @@ className="absolute top-0 right-[34%] md:w-[28%] float-animation phone "
           <div className="flex flex-col card ">
         <img src={cards} alt="no img" className=" w-[20px] h-[20px]"/>
         <h1 className="font-bold mb-2 text-[12px] text-white ">Get a secured credit card and bank account in 5 minutes.</h1>
-        <p className="font-bold text-[12px] md:text-[2vh]">No credit history, credit check, or minimum deposit required.</p>
+        <p className="font-bold text-[12px] md:text-[2vh] text-gray-400">No credit history, credit check, or minimum deposit required.</p>
 
       </div>
           </div>

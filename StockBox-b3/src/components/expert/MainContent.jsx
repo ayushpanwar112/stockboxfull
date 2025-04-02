@@ -40,17 +40,26 @@ useGSAP(()=>{
     </div>
     <div className="md:w-1/2 text-white text-lg para w-[90%]">
     <ul className="md:block hidden">
-     <li>Smart Investing Made Easy: No need to track market trends—our tool does it for you!</li>
-     <li>Expert Stock Picks: Get curated stock recommendations directly on your smartphone.</li>
-     <li></li>
+     <li className=" text-white"><span className="font-bold text-gray-400">Smart Investing Made Easy:</span> No need to track market trends—our tool does it for you!</li>
+     <li className="text-white"><span className="font-bold text-gray-400">Expert Stock Picks:</span> Get curated stock recommendations directly on your smartphone.</li>
+     <li className="text-white"><span className="font-bold text-gray-400">Perfect for All Investors:</span>Ideal for both beginners and experienced traders.</li>
+     <li className="text-white"><span className="font-bold text-gray-400"> Timely & Reliable: </span> Receive expert-backed insights for informed decisions.</li>
+     <li className="text-white"><span className="font-bold text-gray-400"> Customizable & User-Friendly:</span>Set preferences based on your investment goals.</li>
+     <li className="text-white"><span className="font-bold text-gray-400">Maximize Returns, Save Time:</span>Focus on profits while we handle the research.</li>
+     <li className="text-white"><span className="font-bold text-gray-400">Join & Invest Smarter:</span>Subscribe now for high-growth stock recommendations!</li>
+
     </ul>
-    <p className="text-[12px] md:hidden mt-10">Tired of tracking stock market trends? Let our tool do the work for you!
+    <ul className="text-[12px] md:hidden mt-10">
 
-Get expert stock recommendations straight to your smartphone. Our analysts curate top-performing stocks to help you invest wisely.
+    <li className=" text-white"><span className="font-bold text-gray-400">Smart Investing Made Easy:</span> No need to track market trends—our tool does it for you!</li>
+     <li className="text-white"><span className="font-bold text-gray-400">Expert Stock Picks:</span> Get curated stock recommendations directly on your smartphone.</li>
+     <li className="text-white"><span className="font-bold text-gray-400">Perfect for All Investors:</span>Ideal for both beginners and experienced traders.</li>
+     <li className="text-white"><span className="font-bold text-gray-400"> Timely & Reliable: </span> Receive expert-backed insights for informed decisions.</li>
+     <li className="text-white"><span className="font-bold text-gray-400"> Customizable & User-Friendly:</span>Set preferences based on your investment goals.</li>
+     <li className="text-white"><span className="font-bold text-gray-400">Maximize Returns, Save Time:</span>Focus on profits while we handle the research.</li>
+     <li className="text-white"><span className="font-bold text-gray-400">Join & Invest Smarter:</span>Subscribe now for high-growth stock recommendations!</li>
 
-Perfect for beginners and experts alike, our tool saves you time while maximizing returns. Customize preferences, set goals, and make informed decisions effortlessly.
-
-Join our community and start investing smarter today. Subscribe now and secure your financial future! 🚀</p>
+    </ul>
     </div>
    
   </div>

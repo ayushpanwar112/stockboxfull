@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import TableComponent from "./pages/TableComponent";
 import TableYearComponent from "./pages/TableYearComponent";
 import EventDashboard from "./pages/EventDashboard";
+import PdfUpload from "./pages/PdfUpload";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/tables" element={<TableComponent />} />
         <Route path="/tablesYearly" element={<TableYearComponent />} />
         <Route path="/dashboard" element={<EventDashboard />} />
+        <Route path="/upload" element={<PdfUpload/>}/>
       </Routes>
     </div>
   );

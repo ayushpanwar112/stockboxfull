@@ -18,6 +18,9 @@ import Blogpost from "./pages/Blogpost";
 import InvestPage from "./pages/InvestPage";
 import Careers from "./pages/Career";
 import { Toaster } from "react-hot-toast";
+import Media from "./pages/Media";
+import Report from "./pages/Report";
+import Partnet from "./pages/Partnet";
 
 const App = () => {
   gsap.registerPlugin(useGSAP);
@@ -88,6 +91,9 @@ const App = () => {
             <Route path="/blogpost/:id" element={<Blogpost />} />
             <Route path="/investor-charter" element={<InvestPage/>} />
             <Route path="/career" element={<Careers/>} />
+            <Route path="/media" element={<Media/>}/>
+            <Route path="/report" element={<Report/>}/>
+            <Route path="/partner" element={<Partnet/>}/>
 
           </Routes>
         </main>

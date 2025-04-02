@@ -140,7 +140,7 @@ const Navbar = () => {
 
               {[
                 { name: 'About', path: '/About-us' },
-                { name: 'Services', path: '/services' },
+               
                 { name: 'Contact', path: '/contactus' },
                 {name: 'Blog', path: '/blogs'},
                 
