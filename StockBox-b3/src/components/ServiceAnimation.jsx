@@ -1,5 +1,5 @@
 //Doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-import React from "react";
+import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useState } from "react";
@@ -13,8 +13,18 @@ import KnowledgeIcon from "../assets/Icons/KnowledgeIcon.svg";
 import CustomizableIcon from "../assets/Icons/CustomizableIcon.svg";
 import TrackIcon from "../assets/Icons/TrackIcon.svg";
 import AccessIcon from "../assets/Icons/AccessIcon.svg";
+import axios from "axios";
+
+
+
 
 const ServiceAnimate = () => {
+
+ 
+
+
+
+
   const Data = {
     Set1: {
       icons:[
