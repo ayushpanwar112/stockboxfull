@@ -58,30 +58,34 @@ const EndSection = () => {
             </div>
           </div>
 
-          {/* Products */}
+          {/* Products mobile */}
+
+          <div className="flex md:hidden">
+
+        
           <nav className="space-y-6">
             <h2 className="text-xl font-bold">Products</h2>
             <ul className="space-y-4">
               {[
-                "Expert Advice",
-                "Portfolio Screener",
-                "Ready Made StockBox",
-                "Stocks Screener",
-                "Portfolio Hedger",
-                "FII/DII Investment",
-                "Others",
+                {name:"Expert Advice",path:"/expert"},
+                {name:"Portfolio Screener",path:"/portfolio"},
+                {name:"Ready Made StockBox",path:"/ready"},
+                {name:"Stocks Screener",path:"/screener"},
+               {name: "Portfolio Hedger",path:"/portfoliohedger"},
+                {name:"FII/DII Investment",path:"/invest"},
+        
               ].map((item, index) => (
                 <li key={index}>
-                  <a
-                    href="#"
+                  <Link
+                    to={item.path}
                     className="text-gray-400 hover:text-amber-500 flex items-center group transition-colors duration-300"
                   >
-                    <span>{item}</span>
+                    <span>{item.name}</span>
                     <FontAwesomeIcon
                       icon={faArrowRight}
                       className="ml-2 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-2 transition-all duration-300"
                     />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -107,6 +111,63 @@ const EndSection = () => {
         ))}
             </ul>
           </nav>
+          </div>
+
+
+          {/*product big screen*/}
+
+
+          <nav className="space-y-6 hidden md:block">
+            <h2 className="text-xl font-bold">Products</h2>
+            <ul className="space-y-4">
+              {[
+                {name:"Expert Advice",path:"/expert"},
+                {name:"Portfolio Screener",path:"/portfolio"},
+                {name:"Ready Made StockBox",path:"/ready"},
+                {name:"Stocks Screener",path:"/screener"},
+               {name: "Portfolio Hedger",path:"/portfoliohedger"},
+                {name:"FII/DII Investment",path:"/invest"},
+        
+              ].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.path}
+                    className="text-gray-400 hover:text-amber-500 flex items-center group transition-colors duration-300"
+                  >
+                    <span>{item.name}</span>
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="ml-2 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-2 transition-all duration-300"
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Company Links */}
+          <nav className="space-y-6 hidden md:block">
+            <h2 className="text-xl font-bold">Company</h2>
+            <ul className="space-y-4">
+            {menuItems.map((item, index) => (
+          <li key={index}>
+            <Link
+              to={item.path}
+              className="text-gray-400 hover:text-amber-500 flex items-center group transition-colors duration-300"
+            >
+              <span>{item.name}</span>
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                className="ml-2 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-2 transition-all duration-300"
+              />
+            </Link>
+          </li>
+        ))}
+            </ul>
+          </nav>
+
+
+             {/*product end*/}
 
           {/* Support */}
           <div className="space-y-6">

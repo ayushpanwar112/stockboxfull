@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useMyContext } from "../contest/MyProvider";
 
 const Dashboard = () => {
- /*  const navigate = useNavigate();
+  const navigate = useNavigate();
   const { data, setData, setPath } = useMyContext();
   const [authorName, setAuthorName] = useState("");
 
@@ -15,17 +15,16 @@ const Dashboard = () => {
         const res1 = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/blogs`);
         const combinedData = [...res1.data.reverse(), ...res2.data];
         setData(combinedData);
-        console.log(data);
+        console.log(combinedData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
     fetchData();
-  }, []);
- */
- /*  const handleUpdateAuthor = async (id) => {
+  }, [setData]); // Added `setData` in dependency array
+
+  const handleUpdateAuthor = async (id) => {
     try {
-    
       await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/update/${id}`, {
         displayName: authorName,
       });
@@ -37,11 +36,11 @@ const Dashboard = () => {
     } catch (error) {
       console.error("Error updating author name:", error);
     }
-  }; */
+  };
 
   return (
     <div className="bg-black text-white w-full h-screen">
-    {/*   <div className="flex flex-col mt-10 gap-4">
+      <div className="flex flex-col mt-10 gap-4">
         {data.map((item) => {
           const content = item.content;
           const regex = /<img[^>]+src="([^">]+)"/;
@@ -61,7 +60,7 @@ const Dashboard = () => {
                 <div className="flex flex-col">
                   <h1 className="text-xl font-bold text-black">{item.title}</h1>
                   <p className="text-gray-700">Published on: {new Date(item.published).toDateString()}</p>
-                  <p className="text-gray-700">Author: {item.author.displayName || "Anonymous"}</p>
+                  <p className="text-gray-700">Author: {item.author?.displayName || "Anonymous"}</p>
                   <a
                     href={item.url}
                     target="_blank"
@@ -98,7 +97,6 @@ const Dashboard = () => {
           );
         })}
       </div>
-    </div> */}
     </div>
   );
 };

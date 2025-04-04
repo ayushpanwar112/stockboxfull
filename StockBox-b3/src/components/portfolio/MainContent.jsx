@@ -42,16 +42,23 @@ useGSAP(()=>{
         <img src={man} alt="" className="w-[80%] man" /> 
     </div>
     <div className="md:w-1/2 text-white text-lg para w-[90%]">
-    <p className="md:block hidden">
-    Portfolio Screener is an algorithmic tool used for evaluation of a user’s existing portfolio quality based on fundamental analysis, valuation & portfolio risk theories to get an optimized report on user’s portfolio.
+    <ul className="md:block hidden">
+    <li className=" text-white"><span className="font-bold text-gray-400">Portfolio Screener</span>  is an algorithmic tool for evaluating portfolio quality</li>
+    <li className=" text-white"> Assesses portfolios using <span className="font-bold text-gray-400">fundamental analysis, valuation metrics, and risk theories.</span></li>
+    <li className=" text-white">Provides an <span className="font-bold text-gray-400">optimized evaluation report </span>for better decision-making.</li>
+    <li className=" text-white">Generates <span className="font-bold text-gray-400"> buy, sell, or hold </span>recommendations.</li>
+    <li className=" text-white">Analysis is based on key risk indicators like <span className="font-bold text-gray-400">portfolio beta and standard deviation.</span> </li>
 
-It will generate a recommendation report that will suggest buy, sell or hold on the basis of their equity portfolio beta and standard deviation etc.
+    </ul>
+    <ul className="text-[12px] md:hidden mt-10"> 
+    <li className=" text-white"><span className="font-bold text-gray-400">Portfolio Screener</span>  is an algorithmic tool for evaluating portfolio quality</li>
+    <li className=" text-white"> Assesses portfolios using <span className="font-bold text-gray-400">fundamental analysis, valuation metrics, and risk theories.</span></li>
+    <li className=" text-white">Provides an <span className="font-bold text-gray-400">optimized evaluation report </span>for better decision-making.</li>
+    <li className=" text-white">Generates <span className="font-bold text-gray-400"> buy, sell, or hold </span>recommendations.</li>
+    <li className=" text-white">Analysis is based on key risk indicators like <span className="font-bold text-gray-400">portfolio beta and standard deviation.</span> </li>
 
 
-    </p>
-    <p className="text-[12px] md:hidden mt-10"> Portfolio Screener is an algorithmic tool used for evaluation of a user’s existing portfolio quality based on fundamental analysis, valuation & portfolio risk theories to get an optimized report on user’s portfolio.
-
-It will generate a recommendation report that will suggest buy, sell or hold on the basis of their equity portfolio beta and standard deviation etc. 🚀</p>
+    </ul>
     </div>
    
   </div>

@@ -26,9 +26,7 @@ const PortfolioHedger = () => {
         </div>
 
         <div className="md:w-1/2 h-full text-white">
-        <p className="mt-5">We, at Stockbox, have spent years brainstorming and developing strategies that can be used to save our clients’ capital during times of uncertainty, when everybody else panics. Finally, we have developed the Portfolio hedger.
-It is a unique tool based on risk management algorithms that can be used to mitigate drawdown risks in clients’ portfolios using derivatives strategies. Stockbox has offered this tool to let users hedge their portfolios against uncertainties that occur due to unpredictable macroeconomic& geopolitical events.
-The tool gives our clients an edge as if they are prepared to face the uncertainties, they are ahead of 99% of the investors!!</p></div>
+        <p className="mt-5">Get peace of mind knowing that your investments are protected with a tool that uses advanced risk management algorithms to mitigate drawdown risks in your portfolio.!</p></div>
      </div>
 
      <div className="w-full h-full mt-10 md:mt-[20vh] md:flex gap-10 items-center  md:px-10 px-5">
@@ -38,9 +36,10 @@ The tool gives our clients an edge as if they are prepared to face the uncertain
         <div className="md:w-1/2 h-full text-white flex flex-col gap-5">
            <h1 className="md:text-4xl text-2xl font-bold">A few of the advantages of using portfolio hedger are:</h1>
            <ul className="flex flex-col gap-5">
-            <li>Portfolio Hedger saves clients’ portfolios from big losses as the tool uses algorithms that contain sophisticated statistical calculations</li>
-           <li>The tool is free from emotions such as fear or greed, based on this advantage the tool is best suited when there exists fear in the market</li>
-           <li>It will also help in hedging clients’ portfolios using statistical calculations to analyze portfolios.</li>
+            <li>Portfolio Protection: Shields portfolios from significant losses using advanced algorithms.</li>
+           <li>Emotion-Free Decisions: Eliminates fear and greed for objective risk management</li>
+           <li>Market Fear Advantage: Most effective during volatile or uncertain market conditions.</li>
+           <li>Statistical Hedging: Uses sophisticated calculations to analyze and hedge portfolios.</li>
            </ul>
         </div>
         <div className="md:w-1/2  hidden md:block">

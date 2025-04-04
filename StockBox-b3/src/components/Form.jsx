@@ -25,7 +25,7 @@ const Form = (title) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:5000/api/sendmail",
+        `${import.meta.env.VITE_API_URL}/api/sendmail`,
         formData,
         {
           headers: { "Content-Type": "application/json" }, // Ensure JSON format
