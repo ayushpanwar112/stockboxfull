@@ -1,5 +1,5 @@
 //Doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-import React from "react";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useState } from "react";
@@ -82,7 +82,7 @@ const ServiceAnimate = () => {
       scrollTrigger: {
         trigger: ".sectionSecond",
         scroller: "body",
-        start: "top 200%",
+        start: "top 285%",
         end: "top 0%",
         scrub: 1,
       },
@@ -104,7 +104,7 @@ const ServiceAnimate = () => {
 
   return (
     <>
-      <div className="justify-center h-[118vh] items-center hidden lg:flex lg:justify-normal lg:items-start">
+      <div className="justify-center  lg:h-[118vh]  items-center hidden lg:flex lg:justify-normal lg:items-start mb-10 md:mb-0 ">
         {/* Left side: Sticky element */}
         <div className="w-1/2 h-[70vh] sticky top-12 pt-40  flex-col items-center justify-center hidden md:hidden lg:flex ">
         <h1 className="text font-bold text-[5vh] lg:text-4xl text-center bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent">
@@ -112,16 +112,16 @@ const ServiceAnimate = () => {
          </h1>
 
           <div className=" flex justify-center  gap-28  ">
-            <img src={backLight} width="78%" className="relative" />
+            <img src={backLight} width="78%" className="lg:relative" />
             <img
               src={handPhone}
-              className="absolute top-24"
+              className="lg:absolute top-24"
               width="55%"
               alt="handPhone"
             />
             <img
               src={phoneReplace}
-              className="absolute phoneReplace top-[32.5%] left-[41%] opacity-1"
+              className="lg:absolute phoneReplace top-[32.5%] left-[41%] opacity-1"
               width="20.5%"
               alt="handPhone"
             />
@@ -129,7 +129,7 @@ const ServiceAnimate = () => {
         </div>
 
         {/* Right side: Scrollable content */}
-        <div className="  w-full lg:w-1/2 h-full flex flex-col  justify-center items-center lg:justify-normal  lg:items-center  gap-14 p-4">
+        <div className="  w-full lg:w-1/2 lg:h-full flex flex-col  justify-center items-center lg:justify-normal  lg:items-center  gap-10 p-4">
           
 
           {Object.keys(Data).map((key, index) => (

@@ -83,14 +83,16 @@ const Home = () => {
         <DetailsSection />
       </section>
 
-      <section className="w-full h-auto bg-transparent">
-        <ServiceAnimate />
-      </section>
+   
+      <section className="w-full h-auto bg-transparent mb-10">
+  <ServiceAnimate />
+</section>
 
-      <section className="bg-transparent pt-[43vh]">
-        <Review />
-      </section>
+<section className="bg-transparent pt-10">
+  <Review />
+</section>
 
+    
       <section className="w-full h-[10px] bg-transparent">
         <img src={purple} alt="no img found" className="w-full object-contain" />
       </section>

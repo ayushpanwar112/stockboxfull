@@ -1,18 +1,27 @@
-.scrollings {
-  display: flex;
-  gap: 2rem;
-  animation: scroll 20s linear infinite;
-}
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
+@media  (max-width: 317px){
+  .review-card {
+    margin-top: 55rem;
   }
 }
-
-.scrollings:hover {
-  animation-play-state: paused; /* Pause animation on hover */
+@media (max-width: 371px) and (min-width: 318px){
+  .review-card {
+    margin-top: 44rem;
+  }
 }
+@media (max-width: 415px)  and (min-width: 371px){
+  .review-card {
+    margin-top: 35rem;
+  }
+}
+@media (max-width: 611px) and (min-width: 415px) {
+  .review-card {
+    margin-top: 24rem;
+  }
+}
+@media (max-width: 1020px) and (min-width: 612px) {
+  .review-card {
+    margin-top: 10rem;
+  }
+}
+

@@ -19,7 +19,7 @@ const Card = () => {
         gsap.to(card, {
           duration: 1,
           zIndex: cardRefs.current.length - i,
-          width: `${280 + i * 10}px`,
+          width: `${250 + i * 10}px`,
           height: "350px",
           scale: 1 - i * 0.05,
           x: i * 10,
@@ -43,7 +43,7 @@ const Card = () => {
 
 
      {/* mobile */}
-    <div className="flex justify-center items-center h-[70vh] md:hidden">
+    <div className="flex justify-center items-center h-[70vh] md:hidden overflow-x-hidden">
       <div className="relative flex justify-center  w-1/2 items-center">
         {["Card 1", "Card 2", "Card 3", "Card 4"].map((text, index) => (
           <div
