@@ -1,30 +1,50 @@
 import express from "express";
 import multer from "multer";
+import PdfModel from "../models/PdfModel.js";
+import { uploadPDFToCloudinary } from "../utils/CloudinaryPDF.js";
 
 const router = express.Router();
+const upload = multer({ storage: multer.memoryStorage() }); // Store files in memory
 
-// Multer storage for PDFs (temporary in memory, update for cloud storage)
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
-
-let pdfs = []; // Store uploaded PDFs (use a database in production)
-
-// 📌 **Upload PDF API**
-router.post("/upload", upload.single("pdf"), (req, res) => {
+// Upload PDF
+router.post("/upload", upload.single("pdf"), async (req, res) => {
   const { title } = req.body;
-  if (!req.file || !title) {
-    return res.status(400).json({ error: "Title and file are required" });
+
+  try {
+    if (!req.file) return res.status(400).json({ error: "No file uploaded" });
+
+    // Upload to Cloudinary
+    const { secure_url } = await uploadPDFToCloudinary(req.file, "monthly_reports");
+
+    // Save to database
+    const newPdf = new PdfModel({
+      pdfUrl: secure_url, // Save only the secure URL
+      title,
+      originalName: req.file.originalname, // Save the original file name
+    });
+    await newPdf.save();
+
+    res.status(201).json({ message: "PDF uploaded successfully", pdf: newPdf });
+  } catch (error) {
+    console.error("Error uploading PDF:", error);
+    res.status(500).json({ error: "Failed to upload PDF" });
   }
-
-  const pdfUrl = `https://your-storage-url.com/${req.file.originalname}`; // Modify as needed
-  pdfs.push({ title, pdfUrl });
-
-  res.json({ message: "File uploaded successfully", pdfUrl });
 });
 
-// 📌 **Get all PDFs API**
-router.get("/all", (req, res) => {
-  res.json(pdfs);
+// Fetch all PDFs grouped by title
+router.get("/all", async (req, res) => {
+  try {
+    const pdfs = await PdfModel.find();
+    const groupedPdfs = pdfs.reduce((acc, pdf) => {
+      if (!acc[pdf.title]) acc[pdf.title] = [];
+      acc[pdf.title].push(pdf);
+      return acc;
+    }, {});
+    res.json(groupedPdfs);
+  } catch (error) {
+    console.error("Error fetching PDFs:", error);
+    res.status(500).json({ error: "Failed to fetch PDFs" });
+  }
 });
 
 export default router;

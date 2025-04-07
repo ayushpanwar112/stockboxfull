@@ -8,28 +8,19 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-export const uploadFileToCloudinary = async (file, folder) => {
+// Function to upload a PDF to Cloudinary
+export const uploadPDFToCloudinary = async (file, folder) => {
   return new Promise((resolve, reject) => {
     cloudinary.uploader.upload_stream(
       {
         folder,
         public_id: file.originalname.split(".")[0], // Use the original file name (without extension)
-        resource_type: "image", // Ensure it works for images
+        resource_type: "raw", // Ensure it works for PDFs
       },
       (error, result) => {
         if (error) reject(error);
         else resolve({ secure_url: result.secure_url, public_id: result.public_id });
       }
     ).end(file.buffer); // Use file.buffer for the upload
-  });
-};
-
-// Function to delete a file from Cloudinary
-export const deleteFileFromCloudinary = async (publicId) => {
-  return new Promise((resolve, reject) => {
-    cloudinary.uploader.destroy(publicId, (error, result) => {
-      if (error) reject(error);
-      else resolve(result);
-    });
   });
 };

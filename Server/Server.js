@@ -4,7 +4,6 @@ import cors from "cors";
 
 import connectdb from "./db/database.js"; // Import MongoDB connection logic
 import blogRoute from "./routes/blogsroute.js";
-import uploadRoutes from "./routes/uploadRoutes.js";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 
@@ -13,6 +12,7 @@ import dotenv from "dotenv";
 import UserRoute from "./routes/user.routes.js";
 import { errorHandler } from "./middleware/globalErrorHandler.js";
 import imgRouter from "./routes/ImageRoute.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
 dotenv.config();
 
 // Initialize Express app
@@ -31,9 +31,8 @@ connectdb();
 // Routes
 app.use("/api", blogRoute);
 app.use("/api/sec",UserRoute);
-app.use("/api/crousal" , imgRouter)
-app.use("/api/pdf",uploadRoutes);
-
+app.use("/api/crousal" , imgRouter);
+app.use("/api/pdf", uploadRoutes);
 
 // Error handling middleware
 app.use(errorHandler);

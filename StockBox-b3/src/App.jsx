@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import EndSection from "./components/EndSection";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -21,6 +21,7 @@ import { Toaster } from "react-hot-toast";
 import Media from "./pages/Media";
 import Report from "./pages/Report";
 import Partnet from "./pages/Partnet";
+import ScrollToTop from "./components/Scroll_to_top";
 
 const App = () => {
   gsap.registerPlugin(useGSAP);
@@ -69,12 +70,14 @@ const App = () => {
             reverseOrder={false}/>
       <div className=" hidden md:block cursor-border fixed w-10 h-10 rounded-full border border-orange-500 pointer-events-none z-50 mix-blend-difference backdrop-blur-sm "></div>
       <div className="">
-        {" "}
+        <Router>  {" "}
         {/* Container  lg:mx-[140px] md:mx-[10px]*/}
+        <ScrollToTop />
         <header className="h-16">
           <Navbar />
         </header>
         <main className="mt-1 ">
+      
           <Routes>
             <Route path="/" element={<Home />} />
 
@@ -100,6 +103,7 @@ const App = () => {
         <footer>
           <EndSection />
         </footer>
+        </Router>
       </div>
     </div>
   );

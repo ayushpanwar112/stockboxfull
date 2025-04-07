@@ -1,44 +1,43 @@
-
 import Image from "../../models/Images.js";
-import { deleteFileFromCloudinary, uploadFileToCloudinary } from "../../utils/Cloudinary.js";
-  
-  export const addImg = async (req, res) => {
-    try {
-      const files = req.files; // Access uploaded files
-  
-      // Upload images to Cloudinary and wait for results
-      const uploadedFiles = await uploadFileToCloudinary(files);
-  
-      // Log all URLs and public IDs
-  
-  
-      // Store images in MongoDB
-      const storeData = new Image({
-        img1: uploadedFiles[0] || { url: "", public_id: "" },
-        img2: uploadedFiles[1] || { url: "", public_id: "" },
-        img3: uploadedFiles[2] || { url: "", public_id: "" },
-        img4: uploadedFiles[3] || { url: "", public_id: "" },
-      });
-  
-      await storeData.save(); // Save to MongoDB
-     
-  
-      return res.json({
-        status: "success",
-        message: "Images uploaded & stored successfully!",
-        uploadedFiles,
-        savedData: storeData,
-      });
-    } catch (error) {
-      console.error("Image upload error:", error);
-      return res.status(500).json({
-        status: "error",
-        message: "Image upload failed!",
-        error,
-      });
+import { uploadFileToCloudinary } from "../../utils/Cloudinary.js";
+
+export const addImg = async (req, res) => {
+  try {
+    const files = req.files; // Access uploaded files
+    if (!files || files.length === 0) {
+      return res.status(400).json({ status: "error", message: "No files uploaded" });
     }
-  };
-  
+
+    // Upload images to Cloudinary
+    const uploadedFiles = await Promise.all(
+      files.map((file) => uploadFileToCloudinary(file, "carousel_images"))
+    );
+
+    // Store images in MongoDB
+    const storeData = new Image({
+      img1: uploadedFiles[0] || { secure_url: "", public_id: "" },
+      img2: uploadedFiles[1] || { secure_url: "", public_id: "" },
+      img3: uploadedFiles[2] || { secure_url: "", public_id: "" },
+      img4: uploadedFiles[3] || { secure_url: "", public_id: "" },
+    });
+
+    await storeData.save(); // Save to MongoDB
+
+    return res.json({
+      status: "success",
+      message: "Images uploaded & stored successfully!",
+      uploadedFiles,
+      savedData: storeData,
+    });
+  } catch (error) {
+    console.error("Image upload error:", error);
+    return res.status(500).json({
+      status: "error",
+      message: "Image upload failed!",
+      error,
+    });
+  }
+};
   export const updateImg = async (req, res) => {
     try {
       const { id, imgKey } = req.params; // `id` = MongoDB ID, `imgKey` = "img1", "img2", etc.

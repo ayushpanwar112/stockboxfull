@@ -1,6 +1,8 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
+import { MdDownloadForOffline } from "react-icons/md";
+
 
 const Hero = () => {
     const navigator = useNavigate();
@@ -42,21 +44,25 @@ const Hero = () => {
 
   return (
     <div className="flex flex-col items-center mt-[7%]  px-4 sm:px-6 lg:px-8">
-      <div className="w-[316px]  h-[32px]  rounded-3xl text-white text-center pt-1  bg-[#262423] container1 ">
-        Your Money is our responsibility
-      </div>
+     <div className="relative w-[230px] md:w-[300px] h-[30px] md:h-[27px] mb-5 md:mb-0">
+  <div className="relative  rounded-full box text-white text-xs md:text-sm flex items-center justify-center h-full w-full">
+    Your Money is our responsibility
+  </div>
+</div>
+
+
       <div className="container2 mx-auto px-4">
         <h1
-          className="md:text-[80px] text-3xl lg:text-[5vw] text-white font-bold text-center  mx-auto leading-tight  "
+          className="md:text-[80px] text-3xl lg:text-[5vw]  text-center  mx-auto leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#f7f6f6] to-[#858585]  font-bold "
           style={{ fontFamily: "plus-jakarta-sans" }}
         >
           Invest in Your Future, With a
-          <span className="md:block">Trusted & SEBI Registered</span>
-          <span className="md:block mt-2">Research Analyst</span>
+          <span className="md:block">{""} Trusted & SEBI Registered</span>
+          <span className="md:block mt-2">{""} Research Analyst</span>
         </h1>
       </div>
       <div className="w-full max-w-[90%] sm:max-w-[80%] lg:max-w-[92%]  mt-4 container3">
-        <p className="text-sm sm:text-base md:text-lg text-[#909090] text-center 
+        <p className="text-sm sm:text-base md:text-lg text- text-center text-white
           leading-relaxed sm:leading-loose">
           We are a SEBI Registered Research Analyst firm that assists in
           empowering your trading and investment decisions/opportunities with
@@ -65,14 +71,29 @@ const Hero = () => {
         </p>
       </div>
       <button onClick={() => navigator("/Download")}
-        className="w-[80%] sm:w-[192px] h-[48px] sm:h-[56px] 
-          bg-[#262423] mt-6 sm:mt-10 text-white 
-          text-base sm:text-lg font-semibold rounded-4xl 
-          hover:bg-amber-600 transition-colors duration-1000 container4
-          font-[plus-jakarta-sans]"
+        className="w-[205px]  px-1  h-[48px] sm:h-[56px] 
+          bg-neutral-900 mt-6 sm:mt-10 text-neutral-300
+          text-base sm:text-lg font-semibold rounded-2xl 
+          hover:bg-amber-800 transition-colors duration-1000 container4
+          font-[plus-jakarta-sans] shadow-lg  shadow-[#ffffff3a] drop-shadow-md"
       >
-        Download Now
+       <div className="flex items-center justify-center gap-3">
+        <p className=" font-bold"> Download Now  </p> 
+        <svg
+  className="w-8 h-8 animate-bounce text-white"
+  fill="none"
+  stroke="currentColor"
+  strokeWidth="2"
+  viewBox="0 0 30 24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+<MdDownloadForOffline className="text-white h-20 w-40" size={30} />
+
+</svg></div>
+        
       </button>
+     
+
     </div>
   );
 };

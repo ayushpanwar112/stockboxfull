@@ -92,7 +92,7 @@ const ServiceAnimate = () => {
       scrollTrigger: {
         trigger: ".sectionSecond",
         scroller: "body",
-        start: "top 200%",
+        start: "top 235%",
         end: "top 0%",
         scrub: 1,
       },

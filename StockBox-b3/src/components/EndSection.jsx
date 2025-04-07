@@ -4,8 +4,10 @@ import {
   faTwitter,
   faInstagram,
   faLinkedin,
+  faYoutube,
+  faQuora,
 } from "@fortawesome/free-brands-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faBatteryQuarter, faQuran, faX } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
@@ -42,15 +44,18 @@ const EndSection = () => {
             <p className="text-lg font-light">Follow us</p>
             <div className="flex gap-6">
               {[
-                { icon: faFacebook, link: "#" },
-                { icon: faTwitter, link: "#" },
-                { icon: faInstagram, link: "#" },
+                { icon: faFacebook, link: "https://facebook.com/stockbox" },
+                { icon: faX, link: "https://twitter.com/stockboxtech" },
+                { icon: faInstagram, link: "https://instagram.com/stockboxtech" },
                 { icon: faLinkedin, link: "#" },
+                {icon:faYoutube,link:"https://www.youtube.com/@stockboxtech"},
+                {icon:faQuora,link:"#"},
               ].map((social, index) => (
                 <a
                   key={index}
                   href={social.link}
-                  className="text-gray-400 hover:text-amber-500 transform hover:scale-125 transition-all duration-300"
+                   rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-amber-500 transform hover:scale-125 transition-all duration-300" target="_blank"
                 >
                   <FontAwesomeIcon icon={social.icon} size="2x" />
                 </a>

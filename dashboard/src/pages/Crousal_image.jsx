@@ -40,9 +40,7 @@ const ImageManagement = () => {
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:5000/api/crousal/getAll_Images"
-      );
+      const res = await axios.get("http://localhost:5000/api/crousal/getAll_Images");
       setImages(res.data.data);
     } catch (err) {
       console.error("Error fetching images", err);
@@ -57,20 +55,20 @@ const ImageManagement = () => {
         formData.append("images", data[key][0]);
       }
     });
-
+  
     try {
       await axios.post("http://localhost:5000/api/crousal/addImg", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setUploadStatus("Upload Successful!");
-      setPreviews({});
-      fetchImages();
+      fetchImages(); // Refresh the image list
     } catch (err) {
+      console.error("Error uploading images:", err);
       setUploadStatus("Upload Failed!");
+    } finally {
+      setLoading(false);
+      setIsModalOpen(false);
     }
-
-    setIsModalOpen(false);
-    setLoading(false);
   };
 
   const handleImageChange = (event, fieldName) => {

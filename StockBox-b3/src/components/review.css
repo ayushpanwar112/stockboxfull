@@ -1,18 +1,35 @@
-.scrollings {
-  display: flex;
-  gap: 2rem;
-  animation: scroll 20s linear infinite;
-}
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
+
+@media  (max-width: 307px){
+  .review-card {
+    margin-top: 43rem;
   }
 }
+@media  (max-width: 335px) and (min-width: 307px){
+  .review-card {
+    margin-top: 35rem;
+  }
+}
+@media (max-width: 376px) and (min-width: 335px){
+  .review-card {
+    margin-top: 25rem;
+  }
+}
+@media (max-width: 476px)  and (min-width: 376px){
+  .review-card {
+    margin-top: 17rem;
+  }
+}
+@media (max-width: 611px) and (min-width: 476px) {
+  .review-card {
+    margin-top: 8rem;
+  }
+}
 
-.scrollings:hover {
-  animation-play-state: paused; /* Pause animation on hover */
+.truncate-3-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Show only 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
