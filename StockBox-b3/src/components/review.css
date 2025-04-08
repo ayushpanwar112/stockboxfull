@@ -33,3 +33,68 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@media (max-width: 867px) and (min-width: 383px) {
+  .review-card {
+    margin-top: 20rem;
+  }
+}
+
+@media (max-width: 741px) and (min-width: 545px) {
+  .review-card {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 438px) and (min-width: 335px) {
+  .review-card {
+    margin-top: 30rem;
+  }
+}
+
+
+.glow-card {
+  position: relative;
+  border-radius: 1rem;
+  background-color: #1d1c1c;
+  padding: 1rem;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.glow-card:hover {
+  transform: scale(1.05);
+}
+
+/* Neon border effect using ::before */
+.glow-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(
+    45deg,
+    #00ffff,
+    #ff00ff,
+    #8a2be2,
+    #1e90ff,
+    #00ffff
+  );
+  background-size: 300% 300%;
+  border-radius: 1.2rem;
+  animation: neonBorderMove 6s linear infinite;
+}
+@keyframes neonBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

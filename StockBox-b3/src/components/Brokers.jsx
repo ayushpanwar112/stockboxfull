@@ -1,31 +1,11 @@
 import { useGSAP } from "@gsap/react"
 import broker from "../assets/brokerspng/broker"
 import gsap from "gsap"
+import Marquee from "react-fast-marquee";
 
 
 const Brokers = () => {
-  gsap.registerPlugin(useGSAP)
-
-  useGSAP(()=>{
-    gsap.to(".scrolling", {
-      xPercent: 20,
-      duration: 25,
-      ease: "none",
-      repeat: -1,
-      repeatDelay: 0,
-      yoyo: false,
-    });
-
-
-    gsap.to(".scrolling2", {
-      xPercent: 20,
-      duration: 20,
-      ease: "none",
-      repeat: -1,
-      repeatDelay: 0,
-      yoyo: false,
-    });
-  })
+  
   return (
     <div className="md:mt-[40vh] mb-[10vh] relative mt-[10vh]">
       <div className="absolute left-0 top-0 w-[100px] h-full bg-gradient-to-r from-[#161515d8] to-transparent z-10"></div>
@@ -34,26 +14,42 @@ const Brokers = () => {
  <p className="md:text-[2rem] lg:text-[3vh] text-[#909090] text-center text-sm">We Support 16 brokers</p>
  <div className="fle flex-col h-[30vh] mt-10">
    {/* first row */}
-   <div className="flex  md:gap-30 scrolling w-[60%] gap-10 ">
+   <div className="flex  md:gap-30 scrolling  gap-10 ">
+   <Marquee 
+              className="flex flex-row gap-10 md:gap-10" 
+              speed={30} 
+              pauseOnHover={true}
+              gradient={false}
+            >
       {[...broker(),...broker()].map((item, key) => (
         <img 
           src={item} 
           alt={`Image ${key + 1}`} 
-          className="md:w-[10vh] md:h-[10vh] w-[50px] h-[50px] object-cover" 
+          className="md:w-[10vh] md:h-[10vh] w-[50px] h-[50px] object-cover md:mx-7" 
           key={key} 
         />
       ))}
+      </Marquee>
     </div>
 {/* second row */}
-    <div className="flex  md:gap-30 scrolling2 w-[60%] mt-10 gap-10">
+    <div className="flex  md:gap-30 scrolling2  mt-10 gap-10">
+
+    <Marquee 
+              className="flex flex-row gap-10 md:gap-10" 
+              speed={30} 
+              pauseOnHover={true}
+              gradient={false}
+            >
+
       {[...broker().reverse(),...broker()].map((item, key) => (
         <img 
           src={item} 
           alt={`Image ${key + 1}`} 
-          className="md:w-[10vh] md:h-[10vh] w-[50px] h-[50px] object-cover" 
+          className="md:w-[10vh] md:h-[10vh] w-[50px] h-[50px] object-cover md:mx-7" 
           key={key} 
         />
       ))}
+      </Marquee>
     </div>
 
  </div>

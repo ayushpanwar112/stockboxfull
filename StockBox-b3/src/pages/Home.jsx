@@ -87,7 +87,7 @@ const Home = () => {
         <ServiceAnimate />
       </section>
 
-      <section className="bg-transparent pt-[43vh]">
+      <section className="bg-transparent ">
         <Review />
       </section>
 
