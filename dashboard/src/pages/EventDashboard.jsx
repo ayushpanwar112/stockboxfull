@@ -12,7 +12,7 @@ const EventDashboard = () => {
 
   const fetchEvent = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/event");
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/event`);
       if (res.data.image) {
         setEventImage(res.data.image);
       }
@@ -34,7 +34,7 @@ const EventDashboard = () => {
     formData.append("image", selectedFile);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/event/upload", formData, {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/event/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -48,7 +48,7 @@ const EventDashboard = () => {
   // Delete the event image
   const handleDelete = async () => {
     try {
-      await axios.delete("http://localhost:5000/api/event");
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/event`);
       setEventImage(null);
     } catch (err) {
       console.error("Error deleting event:", err);

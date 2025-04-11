@@ -1,166 +1,190 @@
-
-import team from "../../assets/aboutus/team.png";
+import team from "../../assets/aboutus/founder.png";
+import cofond from "../../assets/aboutus/cofounder.png";
+import manager from "../../assets/aboutus/manager.png";
+import coo from "../../assets/aboutus/coo.png";
 import "../Css/management.css"
 
 const Management = () => {
   return (
-    <div className="min-h-screen flex flex-col relative md:top-[50vh] mt-[35vh] md:mt-0 ">
-      
-      <div className="flex-grow flex  w-full md:flex-row flex-col">
-
-      <div className="w-full  justify-end md:hidden flex flex-col text-center ">
-      <h2 className="font-bold text-[65px] text-red-600 flex justify-end mr-10">Founder</h2>
-          <img
-            src={team}
-            alt="Management Team"
-            className="w-[400px] h-[350px] mr-20 mt-10"
-          />
-        </div>
-        <div className="md:w-1/2 w-full mt-10 md:ml-15 ml-3 flex md:flex-col">
-        <h2 className="font-bold text-[65px] text-red-600 hidden md:block">Founder</h2>
-        <h3 className="text-gray-300">Mr. R S Chauhan</h3>
-          <ul className="md:w-[80%] md:text-[16px] font-bold text-white w-[90%] ">
-           <li>NISM Certified Research Analyst with 17+ years in the financial sector.</li>
-           <li>M.Com & MBA in Marketing & Finance.</li>
-           <li>Innovator & trainer focused on educating retail investors.</li>
-           <li>Integrates AI, research, and risk management for trading models.</li>
-           <li>Key contributor to technology-driven solutions at Stockbox.</li>
+    <div className="min-h-screen w-full bg-gradient-to-b  py-20 px-4 md:px-10 lg:px-20">
+      {/* Founder Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between mb-32 md:mb-40 relative z-10">
+        <div className="md:w-1/2 order-2 md:order-1 mt-10 md:mt-0">
+          <h2 className="text-4xl md:text-6xl font-bold text-red-600 mb-4">Founder</h2>
+          <h3 className="text-xl text-gray-300 mb-6">Mr. R S Chauhan</h3>
+          <ul className="space-y-3 text-gray-200 text-lg">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              NISM Certified Research Analyst with 17+ years in the financial sector.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              M.Com & MBA in Marketing & Finance.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Innovator & trainer focused on educating retail investors.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Integrates AI, research, and risk management for trading models.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Key contributor to technology-driven solutions at Stockbox.
+            </li>
           </ul>
         </div>
-
-        <div className="w-1/2 md:flex justify-end hidden md:block">
-          <img
-            src={team}
-            alt="Management Team"
-            className="w-[450px] h-[400px] mr-20 mt-10"
-          />
+        <div className="md:w-1/2 order-1 md:order-2 flex justify-center md:justify-end">
+          <div className="relative">
+            <div className="absolute -inset-4  rounded-lg opacity-75"></div>
+            <img
+              src={team}
+              alt="Founder - Mr. R S Chauhan"
+              className="relative w-full max-w-md h-auto rounded-lg shadow-2xl "
+            />
+          </div>
         </div>
       </div>
 
-      {/* scenond manaag. */}
-
-      <div className="mt-auto md:py-10"></div>
-      <div className="w-full h-[75vh] md:mb-0 second mb-30">
-
-      <div className="flex-grow flex mt-20 w-full justify-between md:flex-row flex-col ">
-      <div className="md:w-1/2 flex md:ml-7 flex-col justify-end">
-      <h2 className="font-bold text-[65px] text-red-600 md:hidden ml-3"> Co-Founder & CEO</h2>
-          <img
-            src={team}
-            alt="Management Team"
-            className="w-[450px] h-[400px]  md:mt-10 transform scale-x-[-1]"
-          />
-        </div>
-        <div className="md:w-1/2 mt-10 md:ml-15 ml-3">
-          <h2 className="font-bold text-[65px] text-red-600 hidden md:block"> Co-Founder & CEO</h2>
-          <h3 className="text-gray-300">Dr. Shushant Singh</h3>
-          <ul className="md:w-[80%] text-[16px] font-bold text-white w-[90%]">
-           <li>Doctorate in Engineering (Design) from IIT (BHU), Varanasi.</li>
-           <li>NISM Certified Research Analyst.</li>
-           <li>Oversees company operations, strategy execution & digital marketing.</li>
-           <li>Committed to enhancing customer experience at Stockbox.</li>
+      {/* Co-Founder & CEO Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between mb-32 md:mb-40  bg-opacity-50 p-8 rounded-xl">
+        <div className="md:w-1/2 order-2 mt-10 md:mt-0">
+          <h2 className="text-4xl md:text-6xl font-bold text-red-600 mb-4">Co-Founder & CEO</h2>
+          <h3 className="text-xl text-gray-300 mb-6">Dr. Shushant Singh</h3>
+          <ul className="space-y-3 text-gray-200 text-lg">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Doctorate in Engineering (Design) from IIT (BHU), Varanasi.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              NISM Certified Research Analyst.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Oversees company operations, strategy execution & digital marketing.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Committed to enhancing customer experience at Stockbox.
+            </li>
           </ul>
         </div>
-
-     
+        <div className="md:w-1/2 order-1 flex justify-center md:justify-start">
+          <div className="relative">
+            <div className="absolute -inset-4  rounded-lg blur opacity-75"></div>
+            <img
+              src={cofond}
+              alt="Co-Founder & CEO - Dr. Shushant Singh"
+              className="relative w-full max-w-md h-auto rounded-lg shadow-2xl  transform scale-x-[-1]"
+            />
+          </div>
+        </div>
       </div>
 
+      {/* HR Manager Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between mb-32 md:mb-40">
+        <div className="md:w-1/2 order-2 md:order-1 mt-10 md:mt-0">
+          <h2 className="text-4xl md:text-6xl font-bold text-red-600 mb-4">HR Manager</h2>
+          <h3 className="text-xl text-gray-300 mb-6">Dolly Singh</h3>
+          <ul className="space-y-3 text-gray-200 text-lg">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Postgraduate in Marketing & HR from ICFAI University.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              10+ years of experience in financial markets.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Expert in investment techniques & digital marketing outreach.
+            </li>
+          </ul>
+        </div>
+        <div className="md:w-1/2 order-1 md:order-2 flex justify-center md:justify-end">
+          <div className="relative">
+            <div className="absolute -inset-4  rounded-lg blur opacity-75"></div>
+            <img
+              src={manager}
+              alt="HR Manager - Dolly Singh"
+              className="relative w-full max-w-md h-auto rounded-lg shadow-2xl "
+            />
+          </div>
+        </div>
       </div>
 
-{/*third*/}
-<div className="mt-[40vh] md:mt-0"></div>
-      <div className="flex-grow flex  w-full md:flex-row flex-col ">
+      {/* Research Head Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between mb-32 md:mb-40  bg-opacity-50 p-8 rounded-xl">
+        <div className="md:w-1/2 order-2 mt-10 md:mt-0">
+          <h2 className="text-4xl md:text-6xl font-bold text-red-600 mb-4">Senior Research Analyst & Research Head</h2>
+          <h3 className="text-xl text-gray-300 mb-6">Mr. Siddhart Rai Mangla</h3>
+          <ul className="space-y-3 text-gray-200 text-lg">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              FRM Charter (GARP, USA) | EPAT (Quantinsti) | NISM Certified.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              8+ years in capital market research & advisory.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Guest market expert on Zee Business & speaker at ICAI & academic institutions.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Skilled in technical & fundamental analysis.
+            </li>
+          </ul>
+        </div>
+        <div className="md:w-1/2 order-1 flex justify-center md:justify-start">
+          <div className="relative">
+            <div className="absolute -inset-4  rounded-lg blur opacity-75"></div>
+            <img
+              src={team}
+              alt="Research Head - Mr. Siddhart Rai Mangla"
+              className="relative w-full max-w-md h-auto rounded-lg shadow-2xl transform scale-x-[-1]"
+            />
+          </div>
+        </div>
+      </div>
 
-<div className="w-full  justify-end md:hidden flex flex-col text-center ">
-<h2 className="font-bold text-[65px] text-red-600 flex justify-end mr-10">HR Manager</h2>
-    <img
-      src={team}
-      alt="Management Team"
-      className="w-[400px] h-[350px] mr-20 mt-10"
-    />
-  </div>
-  <div className="md:w-1/2 w-full mt-10 md:ml-15 ml-3 flex md:flex-col">
-  <h2 className="font-bold text-[65px] text-red-600 hidden md:block">HR Manager</h2>
-  <h3 className="text-gray-300">Dolly Singh</h3>
-    <ul className="md:w-[80%] md:text-[16px] font-bold text-white w-[90%]">
-      <li>Postgraduate in Marketing & HR from ICFAI University.</li>
-      <li>10+ years of experience in financial markets.</li>
-      <li>Expert in investment techniques & digital marketing outreach.</li>
-    </ul>
-  </div>
-
-  <div className="w-1/2 md:flex justify-end hidden md:block">
-    <img
-      src={team}
-      alt="Management Team"
-      className="w-[450px] h-[400px] mr-20 mt-10"
-    />
-  </div>
-</div>
-
-{/*fourty*/}
-
-
-<div className="w-full h-[90vh] third">
-
-<div className="flex-grow flex mt-20 w-full justify-between md:flex-row flex-col third">
-<div className="md:w-1/2 flex md:ml-7 flex-col justify-end">
-<h2 className="font-bold text-[65px] text-red-600 md:hidden ml-3"> Senior Research Analyst & Research Head</h2>
-    <img
-      src={team}
-      alt="Management Team"
-      className="w-[450px] h-[400px]  md:mt-10 transform scale-x-[-1]"
-    />
-  </div>
-  <div className="md:w-1/2 mt-10 md:ml-15 ml-3">
-    <h2 className="font-bold text-[65px] text-red-600 hidden md:block"> Senior Research Analyst & Research Head</h2>
-    <h3 className="text-gray-300">Mr. Siddhart Rai Mangla</h3>
-    <ul className="md:w-[80%] text-[16px] font-bold text-white w-[90%]">
-    <li>FRM Charter (GARP, USA) | EPAT (Quantinsti) | NISM Certified.</li>
-    <li>8+ years in capital market research & advisory.</li>
-    <li>Guest market expert on Zee Business & speaker at ICAI & academic institutions.</li>
-    <li>Skilled in technical & fundamental analysis.</li>
-    </ul>
-  </div>
-
-
-</div>
-
-</div>
-
-
-{/*5 manga */}
-<div className="mt-[40vh] md:mt-0"></div>
-<div className="flex-grow flex  w-full md:flex-row flex-col ">
-
-<div className="w-full  justify-end md:hidden flex flex-col text-center ">
-<h2 className="font-bold text-[65px] text-red-600 flex justify-end mr-10">COO</h2>
-    <img
-      src={team}
-      alt="Management Team"
-      className="w-[400px] h-[350px] mr-20 mt-10"
-    />
-  </div>
-  <div className="md:w-1/2 w-full mt-10 md:ml-15 ml-3 flex md:flex-col">
-  <h2 className="font-bold text-[65px] text-red-600 hidden md:block">COO</h2>
-    <ul className="md:w-[80%] md:text-[16px] font-bold text-white w-[90%] ">
-      <li>NISM Certified Research Analyst with 5+ years of trading experience.</li>
-      <li>Background in Commerce & CA (Intermediate).</li>
-      <li>Worked with international blockchain startups in operations & fundraising.</li>
-      <li>Key contributor to marketing & sales strategies at Stockbox.</li>
-    </ul>
-  </div>
-
-  <div className="w-1/2 md:flex justify-end hidden md:block">
-    <img
-      src={team}
-      alt="Management Team"
-      className="w-[450px] h-[400px] mr-20 mt-10"
-    />
-  </div>
-</div>
-
-      <div className="w-full md:h-[25vh] "></div>
+      {/* COO Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between">
+        <div className="md:w-1/2 order-2 md:order-1 mt-10 md:mt-0">
+          <h2 className="text-4xl md:text-6xl font-bold text-red-600 mb-4">COO</h2>
+          <ul className="space-y-3 text-gray-200 text-lg">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              NISM Certified Research Analyst with 5+ years of trading experience.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Background in Commerce & CA (Intermediate).
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Worked with international blockchain startups in operations & fundraising.
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-2">•</span>
+              Key contributor to marketing & sales strategies at Stockbox.
+            </li>
+          </ul>
+        </div>
+        <div className="md:w-1/2 order-1 md:order-2 flex justify-center md:justify-end">
+          <div className="relative">
+            <div className="absolute -inset-4  rounded-lg blur opacity-75"></div>
+            <img
+              src={coo}
+              alt="COO"
+              className="relative w-full max-w-md h-auto rounded-lg shadow-2xl "
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

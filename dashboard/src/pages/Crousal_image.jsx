@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
@@ -24,7 +24,7 @@ const ImageManagement = () => {
   const handleActivate = async (id) => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/crousal/activateimg/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/crousal/activateimg/${id}`
       );
       console.log(res);
 
@@ -40,7 +40,7 @@ const ImageManagement = () => {
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/crousal/getAll_Images");
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/crousal/getAll_Images`);
       setImages(res.data.data);
     } catch (err) {
       console.error("Error fetching images", err);
@@ -57,7 +57,7 @@ const ImageManagement = () => {
     });
   
     try {
-      await axios.post("http://localhost:5000/api/crousal/addImg", formData, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/crousal/addImg`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setUploadStatus("Upload Successful!");
@@ -84,7 +84,7 @@ const ImageManagement = () => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/api/crousal/delete/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/crousal/delete/${id}`
       );
     fetchImages();
       setImages((prevImages) => prevImages.filter((img) => img._id !== id));
@@ -116,7 +116,7 @@ const ImageManagement = () => {
       <div className="overflow-x-auto whitespace-nowrap p-4 mt-6">
         <div className="flex flex-col gap-4">
           {images.map((imageObj, index) => (
-            <div className="flex flex-col px-8 gap-5  border rounded-md shadow-md">
+            <div className="flex flex-col px-8 gap-5  border rounded-md shadow-md" key={index}>
               <div
                 className={`${
                   imageObj.Active ? "text-green-500" : "text-red-500"

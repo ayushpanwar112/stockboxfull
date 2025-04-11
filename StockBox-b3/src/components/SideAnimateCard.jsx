@@ -13,7 +13,7 @@ const SideAnimateCard = () => {
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/crousal/getAll_Images");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/crousal/getAll_Images`);
       const activeItem = res.data.data.find(item => item.Active === true);
 
       if (activeItem) {
