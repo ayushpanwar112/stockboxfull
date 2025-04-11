@@ -7,6 +7,7 @@ import TableYearComponent from "./pages/TableYearComponent";
 import EventDashboard from "./pages/EventDashboard";
 import Crousal_image from "./pages/Crousal_image";
 import PdfUpload from "./pages/PdfUpload";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/dashboard" element={<EventDashboard />} />
         <Route path="/carousel" element={<Crousal_image />} />
         <Route path="/upload" element={<PdfUpload/>}/>
+        <Route path="/login" element={<Login/>}></Route>
       </Routes>
     </div>
   );

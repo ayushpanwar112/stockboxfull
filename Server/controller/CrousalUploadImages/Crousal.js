@@ -1,5 +1,5 @@
 import Image from "../../models/Images.js";
-import { uploadFileToCloudinary } from "../../utils/Cloudinary.js";
+import { deleteFileFromCloudinary, uploadFileToCloudinary } from "../../utils/Cloudinary.js";
 
 export const addImg = async (req, res) => {
   try {
@@ -99,6 +99,7 @@ export const addImg = async (req, res) => {
   };
   
   export const delete_images = async (req, res) => {
+    console.log("hey")
     try {
       const { id } = req.params;
       const image = await Image.findById(id);

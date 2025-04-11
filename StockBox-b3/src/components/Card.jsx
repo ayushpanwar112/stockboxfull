@@ -34,10 +34,10 @@ const Card = () => {
 
       cardRefs.current.forEach((card, i) => {
         gsap.to(card, {
-          duration: 1,
+          duration: 1.5,
           zIndex: cardRefs.current.length - i,
-          width: `${280 + i * 10}px`,
-          height: "350px",
+          width: `${290 + i * 10}px`,
+          height: "370px",
           scale: 1 - i * 0.05,
           x: i * 10,
           y: i * 20,
@@ -46,7 +46,7 @@ const Card = () => {
       });
     };
 
-    const interval = setInterval(rotateCards, 2000);
+    const interval = setInterval(rotateCards, 2800);
     return () => clearInterval(interval);
   }, [activeImages]);
 
@@ -64,7 +64,7 @@ const Card = () => {
               ref={(el) => (cardRefs.current[index] = el)}
               className="absolute flex justify-center items-center"
               style={{
-                width: "200px",
+                width: "220px",
                 height: "200px",
                 borderRadius: "20px",
                 boxShadow: "0px 24px 10px rgba(255, 255, 255, 0.04)",
