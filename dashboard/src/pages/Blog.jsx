@@ -11,7 +11,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/fetch-blog/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/fetch-blog/${id}`);
         setBlogData(response.data);
       } catch {
         setError("Error fetching blog data");
