@@ -8,7 +8,7 @@ import "../../components/Css/download.css"
 
 const MobileShowCase = () => {
   return (
-    <div className="w-full md:h-screen h-[70vh] md:mt-[20vh] relative top-[130px] md:top-0">
+    <div className="w-full md:h-screen h-[90vh] md:mt-[20vh] relative top-[130px] md:top-0 overflow-hidden">
         <div className="w-full">
              <a 
                href="https://apps.apple.com/in/app/stockbox-technologies/id6443554700"

@@ -114,7 +114,7 @@ const ServiceAnimate = () => {
 
   return (
     <>
-      <div className="justify-center h-[140vh] md:h-[118vh]  items-center hidden lg:flex lg:justify-normal lg:items-start">
+      <div className="justify-center   items-center hidden lg:flex lg:justify-normal lg:items-start">
         {/* Left side: Sticky element */}
         <div className="w-1/2 h-[70vh] sticky top-12 pt-40  flex-col items-center justify-center hidden md:hidden lg:flex ">
         <h1 className="text font-bold text-[5vh] lg:text-4xl text-center bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent">
@@ -167,7 +167,7 @@ const ServiceAnimate = () => {
       </div>
 
       {/* Mobile View */}
-      <div className="flex h-[130vh] justify-center items-center  lg:hidden">
+      <div className="flex  justify-center items-center  lg:hidden">
         <div className="w-full md:w-full h-full bg-black-100 pt-16 justify-center items-center  ">
         <h1 className="text font-bold  text-[5vh] text-center bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent"> 
           {""}
