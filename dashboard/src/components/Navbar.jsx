@@ -38,6 +38,7 @@ const Navbar = () => {
     { path: "/dashboard", label: "Add Event" },
     { path: "/upload", label: "Add PDF / Carousel" },
     { path: "/carousel", label: "Photo Carousel" },
+    {path: "/blogData", label: "Add Blog Data"},
   ];
 
   return (

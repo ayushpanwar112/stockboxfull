@@ -13,6 +13,7 @@ import UserRoute from "./routes/user.routes.js";
 import { errorHandler } from "./middleware/globalErrorHandler.js";
 import imgRouter from "./routes/ImageRoute.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import router from "./routes/blog/blogRoutes.js";
 dotenv.config();
 
 // Initialize Express app
@@ -22,17 +23,24 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 
 // Middleware setup
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Allow requests from this origin
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  })
+);
 app.use(bodyParser.json());
 
 // Establish MongoDB connection
 connectdb();
 
 // Routes
+app.use("/api/blogs", router)
 app.use("/api", blogRoute);
 app.use("/api/sec",UserRoute);
 app.use("/api/crousal" , imgRouter);
 app.use("/api/pdf", uploadRoutes);
+
 
 // Error handling middleware
 app.use(errorHandler);
