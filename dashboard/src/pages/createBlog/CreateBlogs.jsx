@@ -1,25 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-
 import { ToastContainer } from "react-toastify";
 import JoditEditor from "jodit-react";
 import slugify from "slugify";
-import { createBlogs, getBlogCategories, } from "../../features/Actions/blogActions";
+import {
+  createBlogs,
+  getBlogCategories,
+  updateBlog,
+} from "../../features/Actions/blogActions";
+import { useParams } from "react-router-dom";
 
 const CreateBlogs = () => {
+  const { id } = useParams();
   const editorRef = useRef(null);
-
   const dispatch = useDispatch();
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
 
+  const blog = useSelector((state) =>
+    state.blog.blogs.find((b) => b._id === id)
+  );
+
   const { isLoading, blogCategories } = useSelector((state) => state.blog);
-
-
-  useEffect(() => {
-    dispatch(getBlogCategories({ pagination: false }));
-  }, []);
 
   const {
     register,
@@ -27,7 +30,7 @@ const CreateBlogs = () => {
     watch,
     control,
     setValue,
-   // reset,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -40,9 +43,11 @@ const CreateBlogs = () => {
     },
   });
 
-  console.log(blogCategories, "blog categories recieved");
-
   const title = watch("title");
+
+  useEffect(() => {
+    dispatch(getBlogCategories({ pagination: false }));
+  }, []);
 
   useEffect(() => {
     if (title) {
@@ -53,6 +58,18 @@ const CreateBlogs = () => {
       setValue("slug", slug);
     }
   }, [title, setValue]);
+
+  useEffect(() => {
+    if (blog) {
+      console.log(blog)
+      setValue("title", blog.title);
+      setValue("slug", blog.slug);
+      setValue("category", blog.category?._id || blog.category); // category fix
+      setValue("content", blog.content);
+      setImagePreview(blog.thumbImage?.secure_url || blog.thumbImage || null); // image fix
+    }
+  }, [blog, setValue]);
+  
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -67,39 +84,28 @@ const CreateBlogs = () => {
   };
 
   const onSubmit = async (data) => {
-    console.log("Form Data 255", data);
-
     const formData = new FormData();
-    formData.append("thumbImage", image);
+    formData.append("title", data.title);
+    formData.append("slug", data.slug);
+    formData.append("category", data.category);
+    formData.append("content", data.content);
+    formData.append("author", data.author);
 
-    dispatch(createBlogs(data)).then((res) => {
-      console.log("page 10101", res);
-    });
+    if (image) {
+      formData.append("thumbImage", image);
+    }
+
+    if (id) {
+      dispatch(updateBlog({ id, data: formData }));
+    } else {
+      dispatch(createBlogs(data));
+    }
   };
 
   const config = {
     readonly: false,
     height: 400,
     toolbar: true,
-    // buttons: [
-    //   "bold",
-    //   "italic",
-    //   "underline",
-    //   "|",
-    //   "ul",
-    //   "ol",
-    //   "|",
-    //   "outdent",
-    //   "indent",
-    //   "|",
-    //   "align",
-    //   "|",
-    //   "link",
-    //   "image",
-    //   "video",
-    //   "|",
-    //   "source",
-    // ],
     buttons: [
       "source",
       "|",
@@ -142,7 +148,7 @@ const CreateBlogs = () => {
     ],
     uploader: {
       insertImageAsBase64URI: true,
-      url: "your-upload-url", // If you have a file upload URL
+      url: "your-upload-url",
       format: "json",
     },
     placeholder: "Start typing here...",
@@ -164,7 +170,6 @@ const CreateBlogs = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="bg-white rounded-md shadow-md p-8"
         >
-          {/* Image Upload Section */}
           <div className="mb-6">
             <label
               htmlFor="thumbImage"
@@ -177,25 +182,22 @@ const CreateBlogs = () => {
               id="thumbImage"
               accept="image/*"
               {...register("thumbImage", {
-                required: "Blog image is required",
+                required: !id && "Blog image is required",
                 onChange: (e) => {
                   handleImageChange(e);
                 },
               })}
               className={`block w-full text-sm text-gray-500
-                            file:mr-4 file:py-2 file:px-4
-                            file:rounded-md file:border-0
-                            file:text-sm file:font-semibold
-                            file:bg-blue-50 file:text-blue-700
-                            hover:file:bg-blue-100
-                            ${
-                              errors.thumbImage
-                                ? "border-red-500"
-                                : "border-gray-300"
-                            } 
-                            rounded-lg focus:ring-blue-500 focus:border-blue-500`}
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-md file:border-0
+                file:text-sm file:font-semibold
+                file:bg-blue-50 file:text-blue-700
+                hover:file:bg-blue-100
+                ${
+                  errors.thumbImage ? "border-red-500" : "border-gray-300"
+                } 
+                rounded-lg focus:ring-blue-500 focus:border-blue-500`}
             />
-            {/* Display image preview */}
             {imagePreview && (
               <div className="mt-4">
                 <img
@@ -207,12 +209,8 @@ const CreateBlogs = () => {
             )}
           </div>
 
-          {/* Blog Title */}
           <div className="mb-6">
-            <label
-              htmlFor="title"
-              className="block mb-2 text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-700">
               Blog Title
             </label>
             <input
@@ -221,46 +219,33 @@ const CreateBlogs = () => {
               {...register("title", { required: "Title is required" })}
               className={`shadow-sm bg-gray-50 border ${
                 errors.title ? "border-red-500" : "border-gray-300"
-              } 
-                            text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
-                            block w-full p-2.5`}
+              } text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+              block w-full p-2.5`}
               placeholder="Enter blog title"
             />
-            {errors.title && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.title.message}
-              </p>
-            )}
+            {errors.title && <p className="text-red-500 text-sm mt-1">{errors.title.message}</p>}
           </div>
 
-          {/*Slug*/}
-
           <div className="mb-6">
-            <label
-              htmlFor="title"
-              className="block mb-2 text-sm font-medium text-gray-700"
-            >
-              Slug
-            </label>
+            <label className="block mb-2 text-sm font-medium text-gray-700">Slug</label>
             <input
               type="text"
               {...register("slug")}
               readOnly
               className={`shadow-sm bg-gray-50 border ${
                 errors.slug ? "border-red-500" : "border-gray-300"
-              } 
-                            text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
-                            block w-full p-2.5`}
+              } text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+              block w-full p-2.5`}
             />
           </div>
 
-          {/* Blog Categories */}
           <div className="mb-6">
             <label htmlFor="category">Blog Category</label>
             <select
               {...register("category", {
                 required: "Please select a category",
               })}
+              className="block w-full p-2 border border-gray-300 rounded-md"
             >
               <option value="">Choose Option</option>
               {blogCategories?.map((blogCat) => (
@@ -269,14 +254,11 @@ const CreateBlogs = () => {
                 </option>
               ))}
             </select>
-            {errors.category && <p>{errors.category.message}</p>}
+            {errors.category && <p className="text-red-500 text-sm">{errors.category.message}</p>}
           </div>
 
-          {/* Blog Body */}
           <div className="mb-6">
-            <label className="block mb-2 text-sm font-medium text-gray-700">
-              Blog Content
-            </label>
+            <label className="block mb-2 text-sm font-medium text-gray-700">Blog Content</label>
             <Controller
               control={control}
               name="content"
@@ -292,33 +274,17 @@ const CreateBlogs = () => {
               )}
             />
             {errors.content && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.content?.message}
-              </p>
+              <p className="text-red-500 text-sm mt-1">{errors.content?.message}</p>
             )}
           </div>
-          {isLoading ? (
-            <>
-              <button
-                type="submit"
-                className=" bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors"
-              >
-                Please Wait ...
-              </button>
-            </>
-          ) : (
-            <>
-              <button
-                type="submit"
-                className=" bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors"
-              >
-                Save Blog
-              </button>
-            </>
-          )}
-          {/* Submit Button */}
 
-          {/* Toast Container */}
+          <button
+            type="submit"
+            className="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors"
+          >
+            {isLoading ? "Please Wait ..." : id ? "Update Blog" : "Save Blog"}
+          </button>
+
           <ToastContainer
             position="top-right"
             autoClose={3000}

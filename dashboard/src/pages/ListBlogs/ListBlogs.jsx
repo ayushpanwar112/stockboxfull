@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
 import ConfirmDeleteModal from "../../components/ConfirmModal/ConfirmDeleteModal";
-import { getBlogs , deleteBlog } from "../../features/Actions/blogActions";
+import { getBlogs, deleteBlog } from "../../features/Actions/blogActions";
 
 const ListBlogs = () => {
   const dispatch = useDispatch();
@@ -313,7 +313,7 @@ const ListBlogs = () => {
                                 </button>
                                 <li>
                                   <a
-                                    href={`editblog/${blog.slug}`}
+                                    href={`/update_blog/${blog._id}`}
                                     className="block py-2 px-4 bg-blue-500  rounded-md"
                                   >
                                     Edit
@@ -349,8 +349,6 @@ const ListBlogs = () => {
               )}
             </div>
           </div>
-
-         
         </div>
       </section>
     </div>

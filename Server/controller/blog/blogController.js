@@ -105,11 +105,9 @@ import { paginate } from "../../utils/ErrorResponse/Pagination.js";
   
   // Update a blog post
   export const updateBlogById = asyncHandler(async (req, res, next) => {
-    const { id } = req.params; // Get the blog post ID from the request params
-    const thumbImage = req.file; // Handle file upload for thumbImage if it exists
+    const { id } = req.params;
+    const thumbImage = req.file;
   
-  
-    // Fetch the blog post to check for existing thumbImage
     const existingBlog = await Bloging.findById(id);
     if (!existingBlog) {
       return next(new ApiError("Blog post not found", 404));
@@ -117,35 +115,45 @@ import { paginate } from "../../utils/ErrorResponse/Pagination.js";
   
     let thumbImageResponse = null;
   
-    // Delete the old thumbImage from Cloudinary if it exists and a new one is provided
     if (thumbImage) {
-      thumbImageResponse = await uploadFileToCloudinary(thumbImage, "Blogs"); // Upload new thumbImage first
-      if (existingBlog.thumbImage) {
-        await deleteFileFromCloudinary(existingBlog.thumbImage); // If upload succeeds, delete the old thumbImage
+      try {
+        thumbImageResponse = await uploadFileToCloudinary(thumbImage, "Blogs");
+        console.log(thumbImageResponse, "thumbImageResponse");
+  
+        if (existingBlog.thumbImage?.public_id) {
+          await deleteFileFromCloudinary(existingBlog.thumbImage.public_id);
+          console.log("Old image deleted from Cloudinary:", existingBlog.thumbImage.public_id);
+        }
+      } catch (error) {
+        console.error("Image handling error:", error);
+        return next(new ApiError("Error uploading or deleting image", 500));
       }
     }
-    // Prepare the data for update
-    const blogData = {
-      ...req.body,
-      thumbImage: thumbImageResponse ? thumbImageResponse[0] : undefined, // can't use null here as it set null in db if not required
-    };
   
-    // Find and update the blog post
+    const blogData = { ...req.body };
+  
+    // If you store thumbImage as just a URL
+    if (thumbImageResponse) {
+      blogData.thumbImage ={
+        public_id: thumbImageResponse.public_id,
+        secure_url: thumbImageResponse.secure_url
+      }
+    }
+  
     const updatedBlog = await Bloging.findByIdAndUpdate(id, blogData, {
       new: true,
       runValidators: true,
     });
   
-    // Check if update was successful
     if (!updatedBlog) {
-      return next(new ApiError("Blog post not found or update failed", 404));
+      return next(new ApiError("Blog post update failed", 404));
     }
   
-    // Send success response
     return res
       .status(200)
       .json(new ApiResponse("Updated the blog post successfully", updatedBlog));
   });
+  
   
   // Delete a blog post
   export const deleteBlogbyId = asyncHandler(async (req, res, next) => {

@@ -28,7 +28,8 @@ const App = () => {
         <Route path="/carousel" element={<Crousal_image />} />
         <Route path="/upload" element={<PdfUpload/>}/>
         <Route path="/login" element={<Login/>}></Route>
-        <Route path="/blogData" element={<CreateBlogs />}></Route>
+        <Route path="/create-blogs" element={<CreateBlogs />}></Route>
+        <Route path="/update_blog/:id" element={<CreateBlogs />}></Route>
         
       </Routes>
     </div>

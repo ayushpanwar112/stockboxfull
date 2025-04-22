@@ -122,7 +122,7 @@ const ListBlogs = () => {
                               View
                             </button>
                             <Link
-                              to={`editblog/${blog.slug}`}
+                              to={`/update_blog/${blog._id}`}
                               className="px-3 py-1.5 bg-green-100 text-green-700 rounded-md hover:bg-green-200 transition-colors"
                             >
                               Edit
