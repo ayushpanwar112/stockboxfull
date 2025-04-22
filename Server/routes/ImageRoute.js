@@ -15,10 +15,10 @@ const upload = multer({ storage: storage });
 const imgRouter = express.Router();
 
 // Corrected Upload Middleware
-imgRouter.post("/addImg", upload.array("images", 4), addImg);
-imgRouter.patch("/updateImg/:id/:imgKey", upload.single("image"), updateImg);
-imgRouter.get("/getall_images", getAll_Images);
-imgRouter.delete("/delete/:id", delete_images);
-imgRouter.post("/activateimg/:id", activateImage);
+imgRouter.post("/addImg", protectRoute , upload.array("images", 4), addImg);
+imgRouter.patch("/updateImg/:id/:imgKey", protectRoute , upload.single("image"), updateImg);
+imgRouter.get("/getall_images", protectRoute , getAll_Images);
+imgRouter.delete("/delete/:id",protectRoute , delete_images);
+imgRouter.post("/activateimg/:id", protectRoute , activateImage);
 
 export default imgRouter;

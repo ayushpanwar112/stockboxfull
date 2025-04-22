@@ -1,22 +1,23 @@
-import express from "express";
-import jwt from "jsonwebtoken"; // You need to import jwt
+import jwt from "jsonwebtoken";
 import errorResponse from "../middleware/errorResponse.js";
-export  const protectRoute = async (req, res, next) => {
-    const token = req.cookies.jwt;
 
-    if (token) {
-        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-            if (err) {
-                return next(new errorResponse('Unauthorized', 401));
-            }
-            req.user = decoded; // Add decoded user information to the request object
-            next(); // Proceed to the next middleware or route handler
-        });
-    } else {
-        return res.status(401).json({
-            status: "failed",
-            message: "Token not found",
-        });
-    }
+export const protectRoute = (req, res, next) => {
+  const token = req.cookies.jwt;
+
+  if (!token) {
+    return res.status(401).json({
+      status: "failed",
+      message: "Token not found",
+    });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded; // attach user info to request
+    next();
+  } catch (err) {
+    return next(new errorResponse("Unauthorized", 401));
+  }
 };
+
 export default protectRoute;

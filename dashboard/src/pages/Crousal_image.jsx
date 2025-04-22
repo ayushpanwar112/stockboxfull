@@ -24,7 +24,9 @@ const ImageManagement = () => {
   const handleActivate = async (id) => {
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/crousal/activateimg/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/crousal/activateimg/${id}` , {
+          withCredentials: true,
+        }
       );
       console.log(res);
 
@@ -40,7 +42,9 @@ const ImageManagement = () => {
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/crousal/getAll_Images`);
+      const res = await axios.get(`${import.meta.env.VITE_APP_BACKEND_DEV_BASE_URL}/api/crousal/getAll_Images` , {
+        withCredentials: true,
+      });
       setImages(res.data.data);
     } catch (err) {
       console.error("Error fetching images", err);
