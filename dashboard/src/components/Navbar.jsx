@@ -68,7 +68,6 @@ const Dashboard = ({ children }) => {
   };
 
   const navItems = [
-    { path: "/", label: "Dashboard", icon: <Home size={20} /> },
     { path: "/tables", label: "Monthly Data", icon: <Database size={20} /> },
     { path: "/tablesYearly", label: "Yearly Data", icon: <Database size={20} /> },
     { path: "/dashboard", label: "Add Event", icon: <Calendar size={20} /> },
@@ -105,17 +104,22 @@ const Dashboard = ({ children }) => {
         {/* Logo area */}
         <div className="p-4 flex items-center justify-between border-b border-gray-700">
           {expanded && <span className="text-xl font-bold">Admin Panel</span>}
+           
           <button 
             onClick={toggleSidebar} 
             className="p-2 rounded-lg hover:bg-gray-700 transition-colors"
           >
             {expanded ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
           </button>
+          
         </div>
+        
 
         {/* Navigation Links */}
         <div className="flex-grow overflow-y-auto py-4">
+        
           <ul className="space-y-2 px-2">
+          {expanded? <h1 className="p-3 font-bold text-2xl text-violet-500 "> Dashboard</h1> : ""}
             {navItems.map((item, index) => (
               <li key={index}>
                 <button

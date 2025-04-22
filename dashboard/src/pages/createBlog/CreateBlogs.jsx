@@ -164,7 +164,7 @@ const CreateBlogs = () => {
   };
 
   return (
-    <div className="mt-20 ml-72">
+    <div className="">
       <div className="container mx-auto p-10">
         <form
           onSubmit={handleSubmit(onSubmit)}

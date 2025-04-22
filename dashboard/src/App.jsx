@@ -14,16 +14,19 @@ const App = () => {
   return (
     <DashboardLayout>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/blogData" element={<Dashboard />} />
         <Route path="/blog/:id" element={<SingleBlog />} />
         <Route path="/tables" element={<TableComponent />} />
         <Route path="/tablesYearly" element={<TableYearComponent />} />
         <Route path="/dashboard" element={<EventDashboard />} />
         <Route path="/carousel" element={<Crousal_image />} />
-        <Route path="/upload" element={<PdfUpload/>}/>
-        <Route path="/login" element={<Login/>}></Route>
-        <Route path="/create-blogs" element={<CreateBlogs />}></Route>
-        <Route path="/update_blog/:id" element={<CreateBlogs />}></Route>
+        <Route path="/upload" element={<PdfUpload />} />
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/blogData/create-blogs" element={<CreateBlogs />}></Route>
+        <Route
+          path="/update_blog/:id"
+          element={<CreateBlogs />}
+        ></Route>
       </Routes>
     </DashboardLayout>
   );

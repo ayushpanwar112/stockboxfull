@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
 import { deleteBlog, getBlogs } from "../features/Actions/blogActions";
+import { toast } from "react-toastify";
 
 const ListBlogs = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,13 @@ const ListBlogs = () => {
   };
 
   const confirmDelete = () => {
-    dispatch(deleteBlog(selectedBlogId));
+    dispatch(deleteBlog(selectedBlogId)).then((response) => {
+      if (response.meta.requestStatus === "fulfilled") {
+        dispatch(getBlogs({ page: currentPage }));
+         toast.success("Blog deleted successfully");
+      }
+  })
+        // Handle error if needed;
     if (Array.isArray(blogs) && blogs.length === 1 && currentPage > 1) {
       dispatch(getBlogs({ page: currentPage - 1 }));
     } else if (Array.isArray(blogs)) {
@@ -40,7 +47,7 @@ const ListBlogs = () => {
   };
 
   return (
-    <div className="ml-0 md:ml-52 mt-20 p-4 md:p-6">
+    <div className="">
       <section className="bg-gray-50 rounded-xl p-4 md:p-6">
         <div className="mx-auto max-w-screen-2xl">
           {/* Header */}
