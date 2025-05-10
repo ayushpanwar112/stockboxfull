@@ -17,7 +17,7 @@ const InvestPage = () => {
 
   const fetchTableData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/table"); // Ensure this is the correct API URL
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/table`); // Ensure this is the correct API URL
       setTableData(response.data); // Store fetched data in state
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -26,7 +26,7 @@ const InvestPage = () => {
 
  const fetchTableYearlyData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/tableYearly"); // Ensure this is the correct API URL
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/tableYearly`); // Ensure this is the correct API URL
       setYearTableData(response.data); // Store fetched data in state
     } catch (error) {
       console.error("Error fetching data:", error);

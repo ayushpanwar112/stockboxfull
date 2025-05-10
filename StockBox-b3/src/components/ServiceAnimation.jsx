@@ -1,5 +1,5 @@
 //Doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-import React from "react";
+import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useState } from "react";
@@ -13,8 +13,18 @@ import KnowledgeIcon from "../assets/Icons/KnowledgeIcon.svg";
 import CustomizableIcon from "../assets/Icons/CustomizableIcon.svg";
 import TrackIcon from "../assets/Icons/TrackIcon.svg";
 import AccessIcon from "../assets/Icons/AccessIcon.svg";
+import axios from "axios";
+
+
+
 
 const ServiceAnimate = () => {
+
+ 
+
+
+
+
   const Data = {
     Set1: {
       icons:[
@@ -82,7 +92,7 @@ const ServiceAnimate = () => {
       scrollTrigger: {
         trigger: ".sectionSecond",
         scroller: "body",
-        start: "top 200%",
+        start: "top 235%",
         end: "top 0%",
         scrub: 1,
       },
@@ -104,7 +114,7 @@ const ServiceAnimate = () => {
 
   return (
     <>
-      <div className="justify-center h-[118vh] items-center hidden lg:flex lg:justify-normal lg:items-start">
+      <div className="justify-center   items-center hidden lg:flex lg:justify-normal lg:items-start">
         {/* Left side: Sticky element */}
         <div className="w-1/2 h-[70vh] sticky top-12 pt-40  flex-col items-center justify-center hidden md:hidden lg:flex ">
         <h1 className="text font-bold text-[5vh] lg:text-4xl text-center bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent">
@@ -112,16 +122,16 @@ const ServiceAnimate = () => {
          </h1>
 
           <div className=" flex justify-center  gap-28  ">
-            <img src={backLight} width="78%" className="relative" />
+            <img src={backLight} width="78%" className=" flex md:relative " />
             <img
               src={handPhone}
-              className="absolute top-24"
+              className="flex md:absolute top-24"
               width="55%"
               alt="handPhone"
             />
             <img
               src={phoneReplace}
-              className="absolute phoneReplace top-[32.5%] left-[41%] opacity-1"
+              className="flex md:absolute phoneReplace top-[32.5%] left-[41%] opacity-1"
               width="20.5%"
               alt="handPhone"
             />
@@ -157,7 +167,7 @@ const ServiceAnimate = () => {
       </div>
 
       {/* Mobile View */}
-      <div className="flex h-[130vh] justify-center items-center  lg:hidden">
+      <div className="flex  justify-center items-center  lg:hidden">
         <div className="w-full md:w-full h-full bg-black-100 pt-16 justify-center items-center  ">
         <h1 className="text font-bold  text-[5vh] text-center bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent"> 
           {""}

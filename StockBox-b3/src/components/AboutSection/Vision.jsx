@@ -4,6 +4,7 @@ import { Ball2, Ball3 } from "../../assets/aboutus/SVG/Ball"
 import Design from "../../assets/aboutus/SVG/Design"
 import Effects from "../../assets/aboutus/SVG/Effect"
 import Management from "./Management"
+import "../Css/vision.css"
 
 
 const Vision = () => {
@@ -63,11 +64,26 @@ const Vision = () => {
          <span className="md:block hidden">Meet the Management Team</span> 
          <span className="md:hidden flex flex-col items-start ml-3"> <span>Meet the</span> <span>Management</span> <span>Team</span></span>
         </h2>
-        <div className="absolute top-[48%] -right-[10%] z">
-          <Ball2 />
+        <div className="absolute top-[48%] -right-[10%] ball">
+          <Ball2 className="ball" />
         </div>
-        <div className="absolute md:top-[85%]  z-10 top-[66vh]">
-          <Ball3 />
+        <div className="absolute md:top-[85%]  z-10 top-[66vh] ball1">
+          <Ball3 className=""/>
+        </div>
+        <div className="absolute top-[118%] -right-[10%] ball">
+          <Ball2 className="ball" />
+        </div>
+        <div className="absolute md:top-[155%]  z-10 top-[66vh] ball1">
+          <Ball3 className=""/>
+        </div>
+
+
+
+        <div className="absolute top-[218%] -right-[10%] ball">
+          <Ball2 className="ball" />
+        </div>
+        <div className="absolute md:top-[245%]  z-10 top-[66vh] ball1">
+          <Ball3 className=""/>
         </div>
       </div>
          <Management/>

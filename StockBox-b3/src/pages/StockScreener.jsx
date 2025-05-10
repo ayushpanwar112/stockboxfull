@@ -57,51 +57,43 @@ const StockScreener = () => {
       <li className="w-full md:w-auto">
         <strong>FILTER CRITERIA</strong>
         <p className="text-gray-500 hover:text-white transition duration-300 mt-3">
-          Stockbox filter criteria screener allows you to set specific criteria to find stocks that meet your investment goals. 
-          Stockbox’s stock screener can screen stocks based on 52-week low/high, sector, top dividend yield, highest delivery, debt-free company, 
-          top loser/gainer, trending stock, and Stockbox top rating, among others.
+        Screen stocks based on 52-week high/low, sector, dividend yield, debt-free status, top gainers/losers, and more
         </p>
       </li>
       <li className="w-full md:w-auto">
         <strong>CUSTOMIZABLE SCREENS</strong>
         <p className="text-gray-500 hover:text-white transition duration-300 mt-3">
-          A screener that lets you create and save custom screens, allowing you to quickly apply the same set of criteria in the future without 
-          needing to reconfigure your filters every time.
+        Create and save custom filters for quick future use.
         </p>
       </li>
       <li className="w-full md:w-auto">
         <strong>USER-FRIENDLY INTERFACE</strong>
         <p className="text-gray-500 hover:text-white transition duration-300 mt-3">
-          A well-designed, easy-to-use interface ensures that users of all levels can quickly run screens, analyze results, and make informed investment decisions 
-          without unnecessary complexity.
+        Easy-to-use design for seamless stock screening and analysis.
         </p>
       </li>
       <li className="w-full md:w-auto">
-        <strong>SOURCE AND RELIABILITY</strong>
+        <strong>Reliable Data:</strong>
         <p className="text-gray-500 hover:text-white transition duration-300 mt-3">
-          Whether you are new to investing, have had a bad experience before, or are an active investor, Stockbox sources its data from 
-          reliable and authorized providers to ensure accuracy and trustworthiness.
+        Sources information from authorized and trustworthy providers.
         </p>
       </li>
       <li className="w-full md:w-auto">
         <strong>NEWS UPDATES</strong>
         <p className="text-gray-500 hover:text-white transition duration-300 mt-3">
-          Stockbox strives to provide updated stock news and information, helping users stay informed on market trends, company performance, 
-          and breaking financial news that may impact their investments.
+        Stay informed with real-time stock news and insights.
         </p>
       </li>
       <li className="w-full md:w-auto">
         <strong>ADDITIONAL TOOLS</strong>
         <p className="text-gray-500 hover:text-white transition duration-300 mt-3">
-          Stockbox offers additional tools such as fundamental and technical analysis to help investors assess stock performance, track historical trends, 
-          and make well-informed trading decisions.
+        Includes fundamental and technical analysis for better investment decisions.
         </p>
       </li>
       <li className="w-full md:w-auto">
-        <strong>COST</strong>
+        <strong>Cost-Effective</strong>
         <p className="text-gray-500 hover:text-white transition duration-300 mt-3">
-          Unlike other stock screeners that require a subscription or charge for premium features, Stockbox is almost free, ensuring that investors have access to 
-          essential screening tools without unnecessary costs.
+        Almost free, unlike competitors that charge subscription fees.
         </p>
       </li>
     </ul>

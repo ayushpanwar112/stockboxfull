@@ -1,72 +1,43 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getSingleBlog } from "../features/Actions/blogActions";
 
-const Blog = () => {
-  const { id } = useParams();
-  const [blogData, setBlogData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const  SingleBlog = () => {
+  const { id } = useParams(); // Get the  singleBlog ID from the URL
+  const dispatch = useDispatch();
+  const {  singleBlog, loading, error } = useSelector((state) => state.blog); // Access  singleBlog data from Redux
 
   useEffect(() => {
-    const fetchBlogData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/api/fetch-blog/${id}`);
-        setBlogData(response.data);
-      } catch {
-        setError("Error fetching blog data");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogData();
-  }, [id]);
+    dispatch(getSingleBlog(id)); // Fetch the  singleBlog by ID
+  }, [dispatch, id]);
 
   if (loading) {
-    return <div className="text-center text-gray-500 font-bold mt-10">Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div className="text-center text-red-500 font-bold mt-10">{error}</div>;
+    return <div>Error: {error.message || "Failed to load  singleBlog"}</div>;
   }
 
-  if (!blogData) {
-    return <div className="text-center text-red-500 font-bold mt-10">Blog not found!</div>;
+  if (! singleBlog) {
+    return <div> singleBlog not found</div>;
   }
-
-  // Extract the first image
-  const imageMatch = blogData.content.match(/<img.*?>/);
-  const firstImage = imageMatch ? imageMatch[0] : null;
-  const defaultImage = '<img src="path/to/default-image.jpg" alt="Default Image" />';
-
-  // Remove the first image from the content
-  const updatedContent = firstImage ? blogData.content.replace(firstImage, "") : blogData.content;
 
   return (
-    <div className="max-w-3xl mx-auto p-5">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">{blogData.title}</h1>
-      <p className="text-gray-600 mb-4">Published on: {new Date(blogData.published).toDateString()}</p>
-
-      {/* Render extracted image separately */}
-      <div className="w-full flex justify-center mb-5" dangerouslySetInnerHTML={{ __html: firstImage || defaultImage }} />
-
-      {/* Render content without the first image */}
-      <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: updatedContent }}></div>
-
-      {/* Blog Source Link */}
-      {blogData.url && (
-        <a
-          href={blogData.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block mt-5 text-blue-500 hover:underline"
-        >
-          Read more on the original blog
-        </a>
-      )}
+    <div className="p-6 max-w-4xl mx-auto bg-white shadow-md rounded-md">
+      <h1 className="text-3xl font-bold mb-4">{ singleBlog.title}</h1>
+      <img
+        src={ singleBlog.thumbImage?.secure_url || "https://via.placeholder.com/800"}
+        alt={ singleBlog.title}
+        className="w-full h-auto rounded-md mb-4"
+      />
+      <p className="text-gray-700">{ singleBlog.content}</p>
+      <div className="mt-4 text-sm text-gray-500">
+        Published on {new Date( singleBlog.publishedAt).toLocaleDateString()}
+      </div>
     </div>
   );
 };
 
-export default Blog;
+export default  SingleBlog;

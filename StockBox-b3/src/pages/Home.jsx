@@ -17,7 +17,7 @@ const Home = () => {
     const popupExpireTime = 1 * 20 * 700; // 30 minutes in milliseconds
 
     if (!popupData || Date.now() - JSON.parse(popupData) > popupExpireTime) {
-      fetch("http://localhost:5000/api/event/")
+      fetch(`${import.meta.env.VITE_API_URL}/api/event/`)
         .then((res) => res.json())
         .then((data) => {
           if (!data.message) {
@@ -87,7 +87,7 @@ const Home = () => {
         <ServiceAnimate />
       </section>
 
-      <section className="bg-transparent pt-36">
+      <section className="bg-transparent ">
         <Review />
       </section>
 

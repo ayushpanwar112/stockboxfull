@@ -51,7 +51,8 @@ export const signup = asyncHandler(async (req, res, next) => {
 
 export const Login = asyncHandler(async (req, res, next) => { 
    
-    const { email, password } = req.body;
+    const { email, password  , rememberMe} = req.body;
+    console.log(email, password  , rememberMe)
   
     if (!email || !password) {
       return next(new errorResponse('Please provide email and password', 400));
@@ -67,6 +68,7 @@ export const Login = asyncHandler(async (req, res, next) => {
       return next(new errorResponse('Invalid credentials', 401));
     }
     const token = generateJWT(user);
+    console.log(token)
     sendTokenInCookie(res, token);
 
     res.status(200).json({

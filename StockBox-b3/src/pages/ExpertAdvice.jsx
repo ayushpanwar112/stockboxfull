@@ -5,8 +5,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import MainContent from "../components/expert/MainContent";
 import USP from "../components/expert/USP";
+import { useNavigate } from "react-router-dom";
 
 const ExpertAdvice = () => {
+  const navigator =useNavigate();
 
     gsap.registerPlugin(useGSAP);
 
@@ -43,7 +45,9 @@ const ExpertAdvice = () => {
             <img src={rocket} alt="" className="w-[30%] main1" />
             <div className="w-[30%] text-start main1">
             <h2 className=" flex flex-col items-start md:text-4xl text-2xl">Unlock the power of expert investing with personalized stock recommendations, delivered straight to your phone inbox.</h2>
-            <button className="bg-white hover:scale-105 hover:bg-orange-400 hover:text-re  text-black font-semibold py-2 pointer px-4 rounded-full mt-4">Get Started</button>
+            <button className="bg-white hover:scale-105 hover:bg-orange-400 hover:text-red  w-auto text-black font-semibold py-2 pointer px-4 rounded-full mt-4"
+             onClick={()=>navigator("/report")}
+            >Get the Performance Report</button>
             </div>
 
             

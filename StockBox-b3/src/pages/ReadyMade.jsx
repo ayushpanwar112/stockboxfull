@@ -25,7 +25,7 @@ const ReadyMade = () => {
 {/*2nd page */}
         <div className="w-full h-full items-center  flex justify-between mt-[10vh] overflow-x-hidden md:flex-row flex-col">
            <img src={ready} alt="" className="w-[40%]"/>
-             <div className="md:ml-20 md:w-1/2 mx-3 overflow-hidden">
+           <div className="md:ml-20 md:w-1/2 mx-3 overflow-hidden">
                <p className="md:text-3xl text-white">Stockbox’s Wizard Box/Readymade Stockbox allows users to access our specially curated basket of stocks. These readymade baskets are diligently managed by the Stockbox research team using time-tested investment models.
            We have tailored different baskets of stocks that are re-balanced and updated as per the change in the market trends at every fixed interval. Our goal is to maximize clients’ returns with flexible and adaptive long-term investment strategies.</p>
              </div>
@@ -37,35 +37,26 @@ const ReadyMade = () => {
   <li>
     <strong className="">Transparency</strong>
     <p className="text-gray-500 hover:text-white transform-transition duration-300 mt-3">
-      We at Stockbox are committed to providing transparent information to our
-      clients on our performance, holdings, and fees to enable them in making
-      informed decisions.
+    Clear insights on performance, holdings, and fees for informed decisions..
     </p>
   </li>
   <li>
-    <strong >Closely Monitored By Registered Professionals</strong>
+    <strong >Expert Monitoring</strong>
     <p className="text-gray-500 hover:text-white transform-transition duration-300 mt-3">
-      Readymade stock Basket is always closely monitored by a SEBI-registered
-      professional who keeps track of your stock basket. Our analysts also
-      tweak stock baskets regularly based on ongoing market trends.
+    SEBI-registered professionals track and adjust stock baskets based on market trends.
     </p>
   </li>
 <li>
-    <strong>Research Driven Advice</strong>
+    <strong> Research-Driven</strong>
     <p className="text-gray-500 hover:text-white transform-transition duration-300 mt-3">
-    Each ready-made stock basket is powered by top-quality research and 
-    investment strategy, created and managed by qualified SEBI registered professionals.
+    Curated using top-quality research and investment strategies by SEBI-registered experts
     </p>
    </li>
    <li>
-    <strong>Suitable For Every Need</strong>
-    <p className="text-gray-500 hover:text-white transform-transition duration-300 mt-3">Whether you are new to investing, have had a bad experience before or an active 
-      investor, there is a stock Basket to suit our users’ every need. Pick from a range of short-term/sectoral / themed WealthBaskets.</p>
+    <strong>Control & Flexibility</strong>
+    <p className="text-gray-500 hover:text-white transform-transition duration-300 mt-3"> Integrated with broking accounts for real-time tracking, easy withdrawals, and auto-rebalancing</p>
    </li>
-   <li>
-    <strong>Transparency & Control</strong>
-    <p className="text-gray-500 hover:text-white transform-transition duration-300 mt-3">Stock Baskets are integrated with clients’ broking accounts. Clients can track the stocks on a real-time basis in their Readymade stockbox. They can withdraw anytime and auto-rebalance with a single click.</p>
-   </li>
+   
 
 </ul>
    
@@ -78,7 +69,12 @@ const ReadyMade = () => {
            <h1 className="text-4xl font-bold md:ml-10">Curated Stock Baskets</h1>
            <p className="text-gray-400 w-full">Smallcases are curated baskets of stocks that are managed by stockbox Research Desk.</p>
           </div>
-          <button className=" md:w-1/2  mt-1/2 bg-orange-500 hover:scale-105 hover:bg-green-950 transform-transition duration-300 hover:text-white  text-black font-semibold py-2 pointer px-4 rounded-full mt-4">Discover Baskets</button>
+          <button 
+  className="md:w-1/2 mt-1/2 bg-orange-500 hover:scale-105 hover:bg-green-950 transform transition duration-300 hover:text-white text-black font-semibold py-2 px-4 rounded-full mt-4"
+  onClick={() => window.open('https://stockboxtech.smallcase.com/', '_blank')}
+>
+  Discover Baskets
+</button>
           
           
           </div>
